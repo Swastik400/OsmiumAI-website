@@ -6,13 +6,11 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { APIIntro } from "@/components/sections/APIIntro";
 import { APIShowcase } from "@/components/sections/APIShowcase";
 import { APIShowcase2 } from "@/components/sections/APIShowcase2";
-import { ImpactHeading } from "@/components/sections/ImpactHeading";
-import { CaseStudies } from "@/components/sections/CaseStudies";
+import { AllDevices } from "@/components/sections/AllDevices";
 import { InstituteFeatures } from "@/components/sections/InstituteFeatures";
 import { ResearchIntro } from "@/components/sections/ResearchIntro";
-import { Timeline } from "@/components/sections/Timeline";
-import { ResearchCards } from "@/components/sections/ResearchCards";
-import { Safety } from "@/components/sections/Safety";
+import { Comparison } from "@/components/sections/Comparison";
+import { FeatureShowcase } from "@/components/sections/FeatureShowcase";
 import { LatestUpdates } from "@/components/sections/LatestUpdates";
 import { Team } from "@/components/sections/Team";
 import { FAQ } from "@/components/sections/FAQ";
@@ -34,9 +32,8 @@ export default function Home() {
       {/* Deep dive: 2 large feature cards + 4 small icon cards */}
       <BentoGrid />
 
-      {/* ━━━ ACT 6: TRUST & SAFETY ━━━ */}
-      {/* Safety pillars */}
-      <Safety />
+      {/* All features with mockups */}
+      <FeatureShowcase />
 
       {/* Partner testimonials with auto-rotate */}
       <Testimonials />
@@ -51,12 +48,8 @@ export default function Home() {
       {/* API showcase: analytics dashboard */}
       <APIShowcase2 />
 
-      {/* ━━━ ACT 4: IMPACT & STORIES ━━━ */}
-      {/* Impact heading */}
-      <ImpactHeading />
-
-      {/* Case studies mosaic grid */}
-      <CaseStudies />
+      {/* Available on all devices */}
+      <AllDevices />
 
       {/* Osmium AI for Institutes */}
       <InstituteFeatures />
@@ -65,11 +58,8 @@ export default function Home() {
       {/* Research heading */}
       <ResearchIntro />
 
-      {/* Interactive timeline */}
-      <Timeline />
-
-      {/* Research blog cards */}
-      <ResearchCards />
+      {/* Osmium vs Traditional Learning */}
+      <Comparison />
 
       {/* ━━━ ACT 7: LATEST + ABOUT ━━━ */}
       {/* Blog posts */}

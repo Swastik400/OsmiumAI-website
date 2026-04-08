@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -85,41 +85,7 @@ export default function AboutPage() {
       {/* ━━━ ABOUT DESCRIPTION — full-width image card ━━━ */}
       <section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <ScrollReveal>
-            <div className="relative isolate overflow-hidden rounded-3xl min-h-[24rem] md:min-h-[32rem] flex items-end">
-              {/* Background image */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/ref/gmhm1kxxzgd-Background7.jpeg"
-                alt=""
-                className="absolute inset-0 size-full object-cover"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.05) 100%)",
-                }}
-              />
-              <div className="relative z-10 p-6 sm:p-10 md:p-14 max-w-3xl">
-                <p className="type-base text-white/90 text-pretty leading-relaxed">
-                  Osmium isn&apos;t just another AI tool &mdash; it&apos;s a companion
-                  created for you, by you. It teaches you, guides you, keeps an eye
-                  on your mental well-being when things get overwhelming, and even
-                  predicts your mock tests with up to 50% accuracy so you can
-                  prepare confidently, not fearfully.
-                </p>
-                <p className="mt-6 type-base text-white/90 text-pretty leading-relaxed">
-                  Whether you&apos;re a student trying to find direction, a university
-                  seeking better outcomes, an institute aiming for excellence, or a
-                  corporate team preparing for the future &mdash; Osmium adapts to you,
-                  helping you learn smarter, grow faster, and feel supported at
-                  every step.
-                </p>
-              </div>
-              <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-[0.5px] ring-inset ring-black/[0.075]" />
-            </div>
-          </ScrollReveal>
+          
 
           {/* Mission statement */}
           <ScrollReveal>
@@ -200,41 +166,6 @@ export default function AboutPage() {
               </ScrollReveal>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ━━━ STORY IMAGE MOSAIC ━━━ */}
-      <section className="pb-16 md:pb-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <ScrollReveal>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div className="relative aspect-[4/3] rounded-[1.25rem] overflow-hidden col-span-2 md:col-span-1 md:row-span-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/ref/green.jpeg" alt="" className="absolute inset-0 size-full object-cover" />
-                <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
-              </div>
-              <div className="relative aspect-[4/3] rounded-[1.25rem] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/ref/purpleblue.jpeg" alt="" className="absolute inset-0 size-full object-cover" />
-                <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
-              </div>
-              <div className="relative aspect-[4/3] rounded-[1.25rem] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/ref/9dzqkp3d2u4-app-creative.jpeg" alt="" className="absolute inset-0 size-full object-cover" />
-                <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
-              </div>
-              <div className="relative aspect-[4/3] rounded-[1.25rem] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/ref/rlartawee0i-app-agents.jpeg" alt="" className="absolute inset-0 size-full object-cover" />
-                <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
-              </div>
-              <div className="relative aspect-[4/3] rounded-[1.25rem] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/ref/c26lff3ikup-ukraine.jpeg" alt="" className="absolute inset-0 size-full object-cover" />
-                <div className="pointer-events-none absolute inset-0 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -329,70 +260,6 @@ export default function AboutPage() {
                 </div>
               </ScrollReveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ━━━ VALUES ━━━ */}
-      <section className="pb-16 md:pb-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="relative border-l border-r border-black/[0.06]">
-            <div className="relative">
-              <div className="absolute left-0 top-0 z-20 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cream">
-                <div className="h-2 w-2 rounded-full bg-black" />
-              </div>
-              <div className="absolute right-0 top-0 z-20 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-cream">
-                <div className="h-2 w-2 rounded-full bg-black" />
-              </div>
-              <div className="h-px w-full bg-black/[0.06]" />
-            </div>
-
-            <div className="px-2 md:px-4 py-16 md:py-20">
-              <ScrollReveal>
-                <div className="overflow-hidden">
-                  <ul className="flex gap-4 overflow-x-auto scrollbar-none snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-visible py-4 -my-4 px-1">
-                    {[
-                      {
-                        icon: "/ref/safety-moderation.svg",
-                        title: "Student First",
-                        desc: "Every feature, every decision, every line of code is built with the student at the center. Their success is our success.",
-                      },
-                      {
-                        icon: "/ref/safety-accountability.svg",
-                        title: "Accessible to All",
-                        desc: "We\u2019re building for every student in India \u2014 urban or rural, privileged or underserved. Quality education should never be a luxury.",
-                      },
-                      {
-                        icon: "/ref/safety-provenance.svg",
-                        title: "Transparent AI",
-                        desc: "Students and institutes always know when content is AI-generated. Full visibility into how predictions and recommendations are made.",
-                      },
-                    ].map((v) => (
-                      <li key={v.title} className="flex-none w-[min(20rem,calc(100%-2rem))] sm:w-[calc(50%-0.5rem)] lg:w-auto snap-start">
-                        <div className="group relative isolate h-full overflow-hidden rounded-[1.25rem] bg-cream">
-                          <div className="relative flex h-full flex-col px-5 pb-6 pt-8 sm:px-7 sm:pb-8">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              alt={v.title}
-                              loading="lazy"
-                              width={203}
-                              height={202}
-                              decoding="async"
-                              className="object-cover mx-auto mt-4 mb-12 sm:mt-8 sm:mb-14 xl:mt-12 xl:mb-18"
-                              style={{ color: "transparent" }}
-                              src={v.icon}
-                            />
-                            <h3 className="mt-auto type-xl text-black">{v.title}</h3>
-                            <p className="mt-4 type-sm text-pretty text-warm-500">{v.desc}</p>
-                            <div className="pointer-events-none absolute inset-0 z-30 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ScrollReveal>
-            </div>
           </div>
         </div>
       </section>

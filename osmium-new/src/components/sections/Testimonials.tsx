@@ -6,32 +6,43 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const testimonials = [
   {
-    name: "SSIP Gujarat",
+    name: "Priya Kumari",
+    role: "JEE Aspirant, Patna",
     color: "#3b82f6",
-    image: "/ref/voice-bg-01.png",
-    quote: "Osmium's AI-driven approach to exam preparation is exactly what Indian students need — accessible, intelligent, and scalable.",
+    avatar: "/ref/voice-bg-01.png",
+    quote: "I used Osmium for my JEE prep. It felt less like an app and more like a study partner. The mock tests were scarily close to the actual exam pattern. I improved 40% in just 3 weeks.",
   },
   {
-    name: "NexTech Labs",
+    name: "Dr. Mehul Shah",
+    role: "Professor, Ahmedabad",
     color: "#8b5cf6",
-    image: "/ref/voice-bg-03.png",
-    quote: "The predictive mock test engine is remarkably accurate. We've seen students improve scores by 30% within weeks of using Osmium.",
+    avatar: "/ref/voice-bg-03.png",
+    quote: "We integrated Osmium into our college for managing course content. Usually, software means headaches, but this one was surprisingly smooth. Students actually enjoy using it.",
   },
   {
-    name: "Plenora Edu",
+    name: "Rajesh Yadav",
+    role: "Parent, Lucknow",
     color: "#22c55e",
-    image: "/ref/voice-bg-05.png",
-    quote: "Integrating Osmium into our institute transformed how students prepare. The career mapping feature alone is worth it.",
+    avatar: "/ref/voice-bg-05.png",
+    quote: "My son spends hours on Osmium and for the first time, I don't have to worry it's a waste of time. He actually studies! The career mapping feature gave him real direction.",
   },
   {
-    name: "TantriX",
+    name: "Ananya Reddy",
+    role: "NEET Student, Hyderabad",
     color: "#f59e0b",
-    image: "/ref/voice-bg-07.png",
-    quote: "Osmium bridges the gap between urban and rural education like nothing else. Every student deserves this kind of AI support.",
+    avatar: "/ref/voice-bg-07.png",
+    quote: "The AI tutor is incredible. I asked about organic chemistry at 2 AM and got a better explanation than my coaching class. Step-by-step, with diagrams. Game changer.",
+  },
+  {
+    name: "Arjun Nair",
+    role: "Teacher, Bangalore",
+    color: "#ef4444",
+    avatar: "/ref/voice-bg-02.png",
+    quote: "As a teacher, I can see exactly where each student struggles. The analytics dashboard saves me hours of manual assessment. Osmium is what edtech should have been from the start.",
   },
 ];
 
-const INTERVAL = 4000;
+const INTERVAL = 5000;
 
 export function Testimonials() {
   const [active, setActive] = useState(0);
@@ -47,7 +58,6 @@ export function Testimonials() {
     }, 200);
   }, []);
 
-  // Auto-rotate
   useEffect(() => {
     const tick = setInterval(() => {
       setProgress((p) => {
@@ -61,38 +71,31 @@ export function Testimonials() {
     return () => clearInterval(tick);
   }, [active, goTo]);
 
-  const handleClick = (idx: number) => {
-    goTo(idx);
-  };
+  const t = testimonials[active];
 
   return (
-    <section className="py-6 md:py-8">
+    <section className="pt-8 pb-4 md:pt-10 md:pb-6">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="relative border-l border-r border-black/[0.06]">
           <div className="px-4 py-8 sm:px-6 md:py-10">
             <ScrollReveal>
               <div className="relative flex flex-col gap-x-10 gap-y-6 sm:flex-row sm:justify-between">
-                {/* Left — logos + text */}
                 <div className="flex flex-auto flex-col gap-x-5 gap-y-3 sm:flex-auto md:flex-row md:items-start">
-                  {/* Logo tabs with progress outline */}
+                  {/* Avatar tabs with progress ring */}
                   <div className="flex flex-none gap-4">
-                    {testimonials.map((t, i) => {
+                    {testimonials.map((person, i) => {
                       const isActive = active === i;
                       const ringProgress = isActive ? progress : 0;
-                      // Rounded-rect perimeter math for stroke animation
-                      // Outer rect: 48x48 at (3,3) with rx=14 to wrap the 44x44 icon
-                      const w = 48;
-                      const h = 48;
-                      const rx = 14;
-                      const perimeter = 2 * (w - 2 * rx) + 2 * (h - 2 * rx) + 2 * Math.PI * rx;
-                      const dashOffset = perimeter - (ringProgress / 100) * perimeter;
+                      const r = 22;
+                      const circumference = 2 * Math.PI * r;
+                      const dashOffset = circumference - (ringProgress / 100) * circumference;
 
                       return (
                         <button
-                          key={t.name}
-                          onClick={() => handleClick(i)}
+                          key={person.name}
+                          onClick={() => goTo(i)}
                           className="group relative cursor-pointer outline-none"
-                          aria-label={t.name}
+                          aria-label={person.name}
                         >
                           <svg
                             viewBox="0 0 54 54"
@@ -104,69 +107,58 @@ export function Testimonials() {
                                 <rect width="44" height="44" x="5" y="5" rx="12" />
                               </clipPath>
                             </defs>
-                            {/* Background fill */}
                             <rect
-                              width="44"
-                              height="44"
-                              x="5"
-                              y="5"
-                              rx="12"
-                              fill={isActive ? t.color : "#E0DFDD"}
+                              width="44" height="44" x="5" y="5" rx="12"
+                              fill={isActive ? person.color : "#E0DFDD"}
                               className="transition-colors duration-300"
                             />
                             {/* Avatar image */}
                             <image
-                              href={t.image}
+                              href={person.avatar}
                               x="5" y="5" width="44" height="44"
                               clipPath={`url(#clip-${i})`}
                               style={{ opacity: 0.7 }}
                             />
-                            {/* Progress stroke — rounded rect matching icon shape */}
+                            {/* Progress ring */}
                             {isActive && (
                               <rect
-                                x="3"
-                                y="3"
-                                width={w}
-                                height={h}
-                                rx={rx}
+                                x="3" y="3" width="48" height="48" rx="14"
                                 fill="none"
-                                stroke={t.color}
+                                stroke={person.color}
                                 strokeWidth="2"
                                 strokeLinecap="round"
-                                strokeDasharray={perimeter}
+                                strokeDasharray={circumference}
                                 strokeDashoffset={dashOffset}
-                                style={{
-                                  transition: "stroke-dashoffset 50ms linear",
-                                }}
+                                style={{ transition: "stroke-dashoffset 50ms linear" }}
                               />
                             )}
                           </svg>
-                          {/* Initial letter */}
                           <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-white">
-                            {t.name.charAt(0)}
+                            {person.name.charAt(0)}
                           </span>
                         </button>
                       );
                     })}
                   </div>
 
-                  {/* Text panel with fade */}
-                  <div className="grid flex-auto min-h-[5rem]">
+                  {/* Text panel */}
+                  <div className="grid flex-auto min-h-[7rem]">
                     <div
                       className="col-start-1 row-start-1 py-1 transition-opacity duration-200"
                       style={{ opacity: fading ? 0 : 1 }}
                     >
-                      <p className="w-fit type-sm font-medium text-black block">
-                        {testimonials[active].name}
-                      </p>
-                      <p className="mt-3 type-sm text-warm-500 text-pretty">
-                        &ldquo;{testimonials[active].quote}&rdquo;
+                      <div className="flex items-center gap-2 mb-1">
+                        <p className="type-sm font-medium text-black">{t.name}</p>
+                        <span className="type-xs text-warm-400">{t.role}</span>
+                      </div>
+                      <p className="mt-2 type-sm text-warm-500 text-pretty max-w-xl">
+                        {"\u201C"}{t.quote}{"\u201D"}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Right — CTA */}
+                {/* CTA */}
                 <div className="flex flex-none flex-wrap gap-2 flex-row-reverse justify-end sm:flex-row sm:justify-start sm:absolute sm:-top-0.5 sm:right-0 md:static md:-my-0.5">
                   <Link
                     href="/contact"

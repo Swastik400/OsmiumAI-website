@@ -263,3 +263,12 @@ h6 {
 .animate-fade-up {
   animation: fade-up 0.4s ease-out both;
 }
+
+
+/* Hide footer and navbar on contact page */
+body:has([data-hide-footer]) footer {
+  display: none !important;
+}
+body:has([data-hide-footer]) header {
+  display: none !important;
+}

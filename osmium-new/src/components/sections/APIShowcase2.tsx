@@ -19,7 +19,7 @@ export function APIShowcase2() {
                     India&apos;s First Educational LLM
                   </p>
                   <h3 className="type-xl text-black">
-                    Osmium AI &mdash; 96 Billion Parameters
+                    Osmium AI {"\\u2014"} 96 Billion Parameters
                   </h3>
                   <div className="mt-4 type-base text-warm-500">
                     <p>
@@ -35,7 +35,7 @@ export function APIShowcase2() {
                       <h4 className="type-sm text-black">Outperforms in Education</h4>
                       <p className="type-sm mt-3 text-warm-500">
                         Benchmarked against top AI models in exam prediction,
-                        doubt solving, and personalized learning &mdash; Osmium
+                        doubt solving, and personalized learning {"\\u2014"} Osmium
                         leads in the education sector.
                       </p>
                     </div>
