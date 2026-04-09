@@ -2,326 +2,208 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Sparkles,
-  Zap,
-  ShieldCheck,
-  ArrowRight,
-} from "lucide-react";
+import Image from "next/image";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const tabs = [
   {
     id: "products",
     label: "Products",
-    color: "#E8D5C4",
-    icon: Sparkles,
+    shortLabel: "Products",
     heading: "AI-Powered Products",
     desc: "From Osmium for education to Natraj for AR anatomy — our products transform how people learn, work, and grow.",
-    features: ["Osmium", "Natraj", "Aegis Auth", "Kriya", "LM Lens", "NSL"],
+    subtabs: [
+      { label: "Osmium", text: "AI-powered education & career guidance platform. Smart mock tests, personalized learning, and career mapping for Indian students." },
+      { label: "Natraj", text: "AR/AI-based anatomy learning. Point your phone at a body part and view realistic 3D models of bones and organs in place." },
+      { label: "Aegis Auth", text: "Intelligent authentication and security platform with agentic AI capabilities for enterprise-grade protection." },
+      { label: "Kriya", text: "AI-powered organizational management and workflow automation. Streamline operations with conscious intelligence." },
+    ],
   },
   {
     id: "services",
     label: "Services",
-    color: "#D5E0E8",
-    icon: Zap,
+    shortLabel: "Services",
     heading: "End-to-End Development",
     desc: "Cross-platform apps, AI automation, branding, and cloud — we build scalable solutions from concept to launch.",
-    features: ["App Development", "AI & ML", "UI/UX Design", "Cloud & IoT", "Marketing", "Branding"],
+    subtabs: [
+      { label: "App Development", text: "Android, iOS & Web apps. Cross-platform & Desktop solutions. Game & OS development — all from start to finish." },
+      { label: "AI & ML", text: "AI-driven automation, recommendation engines, and custom LLMs combined with engaging UI/UX and creative branding." },
+      { label: "Design", text: "Impactful logos, UI/UX design, and visual branding that builds identity and connects with your audience." },
+      { label: "Cloud & IoT", text: "Scalable cloud infrastructure, IoT solutions, and server management to power your digital transformation." },
+    ],
   },
   {
     id: "enterprise",
     label: "Enterprise",
-    color: "#E0D5E8",
-    icon: ShieldCheck,
+    shortLabel: "Enterprise",
     heading: "Enterprise Solutions",
-    desc: "Custom AI workflows, organizational tools, and strategic consulting for businesses ready to scale.",
-    features: ["Custom LLMs", "Workflow Automation", "Analytics", "Consulting", "Support", "Training"],
+    desc: "Custom AI workflows, organizational tools, and strategic consulting for businesses ready to scale with confidence.",
+    subtabs: [
+      { label: "Custom LLMs", text: "Purpose-built language models trained on your domain data for intelligent automation and decision support." },
+      { label: "Automation", text: "End-to-end workflow automation that eliminates manual processes and scales with your business growth." },
+      { label: "Analytics", text: "Real-time dashboards, performance tracking, and AI-powered insights to drive data-informed decisions." },
+      { label: "Consulting", text: "Strategic technology consulting to help you identify opportunities, plan roadmaps, and execute with precision." },
+    ],
   },
-];
-
-const logos = [
-  "AWS", "Sarvam", "SSIP", "NexTech", "TantriX", "Plenora",
-  "NineOne152", "Aegis Auth", "Plaur", "Kriya", "LM Lens", "NSL",
 ];
 
 export function Hero() {
   const [activeTab, setActiveTab] = useState(0);
+  const [activeSubtab, setActiveSubtab] = useState(0);
+  const [fadeKey, setFadeKey] = useState(0);
+  const [subtabFadeKey, setSubtabFadeKey] = useState(0);
   const current = tabs[activeTab];
 
+  const switchTab = (i: number) => {
+    setActiveTab(i);
+    setActiveSubtab(0);
+    setFadeKey((k) => k + 1);
+    setSubtabFadeKey((k) => k + 1);
+  };
+
+  const switchSubtab = (i: number) => {
+    setActiveSubtab(i);
+    setSubtabFadeKey((k) => k + 1);
+  };
+
   return (
-    <>
-      {/* ── Hero heading ── */}
-      <section className="pt-28 sm:pt-36 md:pt-44">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12">
-            {/* Left — heading + CTAs */}
-            <div className="contents lg:block lg:col-span-6">
-              <h1
-                className="block max-w-lg text-balance text-black lg:max-w-none"
-                style={{
-                  fontFamily: "var(--font-dm-serif), Georgia, serif",
-                  fontWeight: 300,
-                  fontSize: "clamp(3rem, 6vw, 6.25rem)",
-                  lineHeight: "95%",
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                Technology with
-                <span className="table"> Awareness, Built for Everyone</span>
-              </h1>
-
-              <div className="mt-8 order-last lg:order-none">
-                <div className="flex flex-wrap gap-2">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-black text-white transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-900"
-                    style={{
-                      height: "3rem",
-                      paddingLeft: "1.25rem",
-                      paddingRight: "1.25rem",
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontSize: "1rem",
-                      fontWeight: 400,
-                      lineHeight: "140%",
-                    }}
-                  >
-                    Get started
-                  </Link>
-                  <Link
-                    href="/products"
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.04),0_2px_4px_0_rgba(0,0,0,0.04)] transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-50"
-                    style={{
-                      height: "3rem",
-                      paddingLeft: "1.25rem",
-                      paddingRight: "1.25rem",
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontSize: "1rem",
-                      fontWeight: 400,
-                      lineHeight: "140%",
-                    }}
-                  >
-                    Explore products
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Right — description pushed to bottom */}
-            <div className="mt-8 flex flex-col lg:col-span-6 lg:mt-0 lg:max-w-none max-w-2xl">
-              <p
-                className="block mt-auto text-balance lg:text-pretty"
-                style={{
-                  fontFamily: "var(--font-inter), system-ui, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "1.0625rem",
-                  lineHeight: "140%",
-                  color: "#000",
-                }}
-              >
-                Powering the best enterprises, creators, and developers. From
-                Osmium for education, Natraj for immersive learning, to
-                enterprise-grade AI solutions and creative services.
-              </p>
-              <div className="h-0 flex-auto" style={{ maxHeight: "5rem" }} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Tabbed product showcase card ── */}
-      <section className="mt-10 sm:mt-0">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div
-            className="relative isolate overflow-hidden rounded-3xl transition-colors duration-500"
-            style={{ backgroundColor: current.color }}
-          >
-            <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-[0.5px] ring-inset ring-black/[0.075]" />
-
-            {/* Tabs */}
-            <div className="relative z-10 px-4 pt-4 sm:px-6 sm:pt-6">
-              <div className="flex items-center gap-1.5">
-                <div className="inline-flex rounded-full bg-[inherit] ring-[0.5px] ring-inset ring-black/[0.075]">
-                  {tabs.map((tab, i) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(i)}
-                      className={`relative isolate flex items-center gap-1.5 rounded-full px-4 py-2.5 text-xs font-medium transition-all duration-200 sm:px-5 sm:text-sm ${
-                        activeTab === i
-                          ? "bg-white text-black shadow-sm"
-                          : "text-black/60 hover:text-black/80"
-                      }`}
-                    >
-                      <span
-                        className="hidden h-3 w-3 rounded-full sm:block"
-                        style={{
-                          backgroundColor: activeTab === i ? current.color : "transparent",
-                        }}
-                      />
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Card content */}
-            <div className="relative z-10 grid grid-cols-1 gap-6 px-4 pb-6 pt-6 sm:px-6 sm:pb-8 sm:pt-8 lg:grid-cols-2 lg:gap-10">
-              <div className="flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <current.icon className="h-4 w-4 text-black/50" />
-                    <span
-                      className="uppercase tracking-wider text-black/50"
-                      style={{
-                        fontFamily: "var(--font-dm-serif), Georgia, serif",
-                        fontWeight: 700,
-                        fontSize: "0.75rem",
-                        lineHeight: "110%",
-                        letterSpacing: "0.05em",
-                      }}
-                    >
-                      {current.label}
-                    </span>
-                  </div>
-                  <h2
-                    className="mt-3"
-                    style={{
-                      fontFamily: "var(--font-dm-serif), Georgia, serif",
-                      fontWeight: 300,
-                      fontSize: "clamp(1.75rem, 3vw, 2.25rem)",
-                      lineHeight: "120%",
-                      letterSpacing: "-0.02em",
-                    }}
-                  >
-                    {current.heading}
-                  </h2>
-                  <p
-                    className="mt-3 max-w-md text-black/60"
-                    style={{
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "1rem",
-                      lineHeight: "140%",
-                    }}
-                  >
-                    {current.desc}
-                  </p>
-                </div>
+    <section className="pt-28 sm:pt-36 md:pt-44">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Two-column hero text */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12">
+          <div className="contents lg:block lg:col-span-6">
+            <h1 className="block max-w-lg text-balance text-black type-6xl lg:max-w-none">
+              Technology with Awareness,
+              <span className="table"> Built for Everyone.</span>
+            </h1>
+            <div className="mt-8 order-last lg:order-none">
+              <div className="flex flex-wrap gap-2">
                 <Link
-                  href={`/${current.id === "products" ? "products" : current.id === "services" ? "services" : "contact"}`}
-                  className="mt-6 inline-flex w-fit items-center gap-1.5 text-black/80 transition-colors hover:text-black"
-                  style={{
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    fontSize: "0.875rem",
-                    fontWeight: 400,
-                  }}
+                  href="/contact"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-black text-white transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-900 h-12 px-5 type-base"
                 >
-                  Learn more
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  Get started
+                </Link>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.04),0_2px_4px_0_rgba(0,0,0,0.04)] transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-50 h-12 px-5 type-base"
+                >
+                  Explore products
                 </Link>
               </div>
+            </div>
+          </div>
+          <div className="mt-8 flex flex-col lg:col-span-6 lg:mt-0 lg:max-w-none max-w-2xl">
+            <p className="block mt-auto text-balance lg:text-pretty type-base text-black">
+              From education to enterprise, we empower growth through
+              technology, creativity, and conscious innovation. Powering
+              Osmium, Natraj, Aegis Auth, and enterprise-grade AI solutions.
+            </p>
+            <div className="h-0 flex-auto" style={{ maxHeight: "5rem" }} />
+          </div>
+        </div>
 
-              <div className="flex flex-col justify-center">
-                <div className="rounded-2xl bg-white/40 p-5 ring-[0.5px] ring-inset ring-black/[0.05] backdrop-blur-sm sm:p-6">
-                  <div className="flex flex-wrap gap-2">
-                    {current.features.map((f) => (
-                      <span
-                        key={f}
-                        className="inline-flex items-center rounded-full bg-white/80 px-3 py-1.5 shadow-sm ring-[0.5px] ring-inset ring-black/[0.05]"
-                        style={{
-                          fontFamily: "var(--font-inter), system-ui, sans-serif",
-                          fontSize: "0.75rem",
-                          fontWeight: 400,
-                          color: "rgba(0,0,0,0.7)",
-                        }}
+        {/* Tabbed showcase card */}
+        <ScrollReveal delay={200}>
+          <div className="relative isolate mt-10 sm:mt-14">
+            <div
+              className="relative isolate rounded-3xl grid gap-x-6 grid-cols-1 lg:grid-cols-[1fr_auto] grid-rows-[auto_1fr_auto] px-4 sm:px-6 lg:pt-6 overflow-hidden"
+              style={{ backgroundColor: "#f5f3f1", minHeight: "37rem" }}
+            >
+              {/* BG image */}
+              <div className="absolute inset-0 z-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/ref/redchdw2op-bento-orange-blue-2@3x.jpeg"
+                  alt=""
+                  className="absolute inset-0 size-full object-cover opacity-20"
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-[0.5px] ring-inset ring-black/[0.075]" />
+
+              {/* Product tabs */}
+              <div className="z-50 col-span-full row-start-1 pt-4 sm:pt-6 lg:pt-0 lg:pb-6 w-full lg:w-fit">
+                <div className="overflow-x-auto scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="flex w-fit rounded-full h-11 ring-[0.5px] ring-inset ring-black/[0.075] mx-auto">
+                    {tabs.map((tab, i) => (
+                      <button
+                        key={tab.id}
+                        onClick={() => switchTab(i)}
+                        className="isolate relative flex items-center justify-center cursor-pointer outline-none rounded-full h-11 px-3 sm:px-5 flex-none"
                       >
-                        {f}
-                      </span>
+                        <div className="relative flex items-center gap-1.5" style={{ color: activeTab === i ? "#000" : "#57534e" }}>
+                          <span className="type-xs sm:type-base hidden sm:block">{tab.label}</span>
+                          <span className="type-xs sm:hidden">{tab.shortLabel}</span>
+                        </div>
+                        <div
+                          className="absolute -z-10 rounded-full inset-0"
+                          style={{
+                            background: activeTab === i ? "#fff" : "transparent",
+                            boxShadow: activeTab === i ? "0 0 1px rgba(0,0,0,0.4), 0 4px 4px rgba(0,0,0,0.04)" : "none",
+                            transition: "all 300ms cubic-bezier(0.32,0.72,0,1)",
+                          }}
+                        />
+                      </button>
                     ))}
                   </div>
-                  <div className="mt-4 aspect-[16/7] w-full rounded-xl bg-white/50 ring-[0.5px] ring-inset ring-black/[0.05]" />
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Trusted by ── */}
-      <section className="relative">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="relative border-l border-r border-black/[0.06]">
-            {/* Divider with dots */}
-            <div className="relative">
-              <div className="absolute left-0 top-0 z-20 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-eggshell">
-                <div className="h-2 w-2 rounded-full bg-black" />
-              </div>
-              <div className="absolute right-0 top-0 z-20 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-eggshell">
-                <div className="h-2 w-2 rounded-full bg-black" />
-              </div>
-              <div className="h-px w-full bg-black/[0.06]" />
-            </div>
+              {/* Main content */}
+              <div className="col-span-full lg:col-span-1 row-start-2">
+                <div className="h-full flex items-center">
+                  <div className="w-full flex flex-col lg:flex-row items-stretch gap-0 my-4">
+                    <div className="flex flex-col sm:flex-row flex-1 min-w-0">
+                      {/* Heading + desc */}
+                      <div key={`tab-${fadeKey}`} className="flex-1 px-2 sm:px-4 py-4 flex flex-col justify-center animate-fade-up">
+                        <p className="type-2xl text-black">{current.heading}</p>
+                        <p className="type-sm text-warm-500 mt-3 leading-relaxed text-pretty">{current.desc}</p>
+                      </div>
 
-            <div className="py-16 md:py-20">
-              {/* Header row — same 12-col grid */}
-              <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12 px-4 sm:px-6">
-                <div className="lg:col-span-6">
-                  <h2
-                    style={{
-                      fontFamily: "var(--font-dm-serif), Georgia, serif",
-                      fontWeight: 300,
-                      fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
-                      lineHeight: "105%",
-                      letterSpacing: "-0.03em",
-                    }}
-                  >
-                    Trusted by leading developers and enterprises
-                  </h2>
-                </div>
-                <div className="mt-8 lg:mt-0 lg:col-span-6 lg:text-right relative">
-                  <div className="lg:absolute lg:right-0" style={{ top: "max(-1.14rem, calc(100% - 3rem))" }}>
-                    <Link
-                      href="/news"
-                      className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.04),0_2px_4px_0_rgba(0,0,0,0.04)] transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-50"
-                      style={{
-                        height: "3rem",
-                        paddingLeft: "1.25rem",
-                        paddingRight: "1.25rem",
-                        fontFamily: "var(--font-inter), system-ui, sans-serif",
-                        fontSize: "1rem",
-                        fontWeight: 400,
-                      }}
-                    >
-                      Read all stories
-                    </Link>
+                      {/* Divider */}
+                      <div className="hidden sm:flex items-center">
+                        <div className="w-px self-stretch my-8" style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.1) 70%, transparent 100%)" }} />
+                      </div>
+                      <div className="sm:hidden mx-8" style={{ height: "1px", background: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.1) 70%, transparent 100%)" }} />
+
+                      {/* Subtab text */}
+                      <div key={`subtab-${subtabFadeKey}`} className="flex-1 px-2 sm:px-4 py-4 flex flex-col justify-center animate-fade-up">
+                        <p className="type-sm font-medium text-black">{current.subtabs[activeSubtab].label}</p>
+                        <p className="type-sm text-warm-500 mt-2 leading-relaxed text-pretty">{current.subtabs[activeSubtab].text}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Logo grid */}
-              <div className="mt-10 px-4 sm:px-6">
-                <ul className="mx-auto grid w-fit grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-10">
-                  {logos.map((name) => (
-                    <li key={name} className="flex items-center justify-center">
-                      <span
-                        className="transition-colors duration-200 hover:text-black/70"
-                        style={{
-                          fontFamily: "var(--font-inter), system-ui, sans-serif",
-                          fontSize: "0.875rem",
-                          fontWeight: 500,
-                          color: "rgba(0,0,0,0.3)",
-                        }}
+              {/* Bottom sub-tabs */}
+              <div className="col-span-full row-start-3 pt-4 sm:pt-6 lg:pt-0 lg:pb-6 w-full lg:w-fit">
+                <div className="overflow-x-auto scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+                  <div className="flex w-fit rounded-full h-10 mx-auto">
+                    {current.subtabs.map((st, i) => (
+                      <button
+                        key={st.label}
+                        onClick={() => switchSubtab(i)}
+                        className="isolate relative flex items-center justify-center cursor-pointer outline-none rounded-full h-10 px-3 sm:px-4 flex-none"
                       >
-                        {name}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                        <span className="relative type-xs sm:type-base whitespace-nowrap" style={{ color: activeSubtab === i ? "#000" : "#57534e" }}>{st.label}</span>
+                        <div
+                          className="absolute -z-10 rounded-full inset-0"
+                          style={{
+                            background: activeSubtab === i ? "#fff" : "transparent",
+                            boxShadow: activeSubtab === i ? "0 0 1px rgba(0,0,0,0.4), 0 4px 4px rgba(0,0,0,0.04)" : "none",
+                            transition: "all 300ms cubic-bezier(0.32,0.72,0,1)",
+                          }}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </>
+        </ScrollReveal>
+      </div>
+    </section>
   );
 }

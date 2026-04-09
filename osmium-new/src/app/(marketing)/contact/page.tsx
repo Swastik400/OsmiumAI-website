@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Mail, Phone, MapPin, Clock, ArrowRight } from "lucide-react";
 
 const instituteTypes = [
   "School (K-12)",
@@ -19,6 +20,13 @@ const studentRanges = [
   "2,000 – 10,000",
   "10,000 – 50,000",
   "50,000+",
+];
+
+const contactDetails = [
+  { icon: Mail, label: "Email", value: "hello@osmium.co.in", href: "mailto:hello@osmium.co.in" },
+  { icon: Phone, label: "Phone", value: "+91 91291 39145", href: "tel:+919129139145" },
+  { icon: MapPin, label: "Office", value: "New Delhi, India", href: null },
+  { icon: Clock, label: "Response time", value: "Within 24–48 hours", href: null },
 ];
 
 export default function ContactPage() {
@@ -44,27 +52,32 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col lg:flex-row">
-      {/* Left — Image (fixed height, no scroll) */}
-      <div className="relative w-full lg:w-1/2 h-[30vh] lg:h-screen flex-none">
+    <div className="min-h-screen flex flex-col md:flex-row">
+      {/* Left — Details panel (hidden on mobile) */}
+      <div className="relative hidden md:flex w-full md:w-[45%] flex-none">
+        {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/ref/redchdw2op-bento-orange-blue-2@3x.jpeg"
           alt=""
           className="absolute inset-0 size-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-black/50" />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%)" }}
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%)" }}
         />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-between h-full px-8 sm:px-12 md:px-14 py-12 md:py-16">
+        </div>
       </div>
 
-      {/* Right — Form (scrollable within viewport) */}
-      <div className="w-full lg:w-1/2 h-[70vh] lg:h-screen overflow-y-auto flex flex-col justify-center">
-        <div className="px-6 sm:px-10 md:px-14 lg:px-16 py-6 lg:py-8">
+      {/* Right — Form */}
+      <div className="w-full md:w-[55%] overflow-y-auto flex flex-col justify-center bg-white">
+        <div className="px-6 sm:px-10 md:px-14 lg:px-16 py-10 md:py-14">
           {submitted ? (
-            <div className="flex flex-col items-center justify-center text-center h-full min-h-[60vh]">
+            <div className="flex flex-col items-center justify-center text-center min-h-[50vh]">
               <div className="size-14 rounded-full bg-brand/10 flex items-center justify-center mb-5">
                 <svg viewBox="0 0 24 24" fill="none" className="size-7 text-brand">
                   <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,9 +105,13 @@ export default function ContactPage() {
                 </svg>
                 Back
               </button>
-              <h1 className="type-3xl text-black mb-8">Contact Sales</h1>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <h2 className="type-3xl text-black mb-1">Contact Sales</h2>
+              <p className="type-sm text-warm-400 mb-8">
+                Fill in the details below and we&apos;ll reach out shortly.
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* First + Last name */}
                 <div className="grid grid-cols-2 gap-x-6">
                   <div>
@@ -128,7 +145,7 @@ export default function ContactPage() {
                 {/* Email */}
                 <div>
                   <label className="type-2xs font-medium text-black">
-                    Work Email <span className="text-brand">*</span>
+                    Work email <span className="text-brand">*</span>
                   </label>
                   <input
                     required
@@ -148,14 +165,16 @@ export default function ContactPage() {
                   <input
                     required
                     type="tel"
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit phone number"
                     value={form.phone}
                     onChange={(e) => update("phone", e.target.value)}
-                    placeholder="eg: 9129139145"
+                    placeholder="eg. 9129139145"
                     className="w-full mt-1 pb-1.5 border-0 border-b border-warm-200 bg-transparent type-xs text-black outline-none placeholder:text-warm-300 focus:border-black transition-colors"
                   />
                 </div>
 
-                {/* Designation + Institute (side by side) */}
+                {/* Designation + Institute */}
                 <div className="grid grid-cols-2 gap-x-6">
                   <div>
                     <label className="type-2xs font-medium text-black">
@@ -185,7 +204,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Type + Students (side by side) */}
+                {/* Type + Students */}
                 <div className="grid grid-cols-2 gap-x-6">
                   <div>
                     <label className="type-2xs font-medium text-black">
@@ -195,11 +214,11 @@ export default function ContactPage() {
                       <select
                         required
                         value={form.type}
-                        aria-label="Type of inquiry"
+                        aria-label="Type of institute"
                         onChange={(e) => update("type", e.target.value)}
                         className="w-full mt-1 pb-1.5 border-0 border-b border-warm-200 bg-transparent type-xs text-black outline-none appearance-none cursor-pointer focus:border-black transition-colors"
                       >
-                        <option value="" disabled>Please Select</option>
+                        <option value="" disabled>Please select</option>
                         {instituteTypes.map((t) => (
                           <option key={t} value={t}>{t}</option>
                         ))}
@@ -220,7 +239,7 @@ export default function ContactPage() {
                         aria-label="Number of students"
                         className="w-full mt-1 pb-1.5 border-0 border-b border-warm-200 bg-transparent type-xs text-black outline-none appearance-none cursor-pointer focus:border-black transition-colors"
                       >
-                        <option value="" disabled>Please Select</option>
+                        <option value="" disabled>Please select</option>
                         {studentRanges.map((r) => (
                           <option key={r} value={r}>{r}</option>
                         ))}
@@ -235,10 +254,10 @@ export default function ContactPage() {
                 {/* Message */}
                 <div>
                   <label className="type-2xs font-medium text-black">
-                    Requirements &amp; Goals
+                    Requirements &amp; goals
                   </label>
                   <textarea
-                    rows={2}
+                    rows={3}
                     value={form.message}
                     onChange={(e) => update("message", e.target.value)}
                     placeholder="Tell us about your needs..."
@@ -254,9 +273,7 @@ export default function ContactPage() {
                     style={{ boxShadow: "inset 0 0 12px rgba(255,255,255,0.15), 0px 0px 2px 0 rgba(0,0,0,0.1)" }}
                   >
                     Send Request
-                    <svg viewBox="0 0 16 16" fill="none" className="size-3.5">
-                      <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <ArrowRight className="size-3.5" />
                   </button>
                 </div>
               </form>

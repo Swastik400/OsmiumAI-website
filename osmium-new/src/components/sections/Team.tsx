@@ -27,12 +27,15 @@ export function Team() {
                 </a>
               </div>
               <div className="relative flex items-center justify-center bg-cream p-10 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/ref/frame@3x.png"
-                  alt="Osmium Team"
-                  className="w-full max-w-md rounded-xl object-cover ring-1 ring-black/5"
-                />
+                <div className="relative w-full max-w-md">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/team.jpeg"
+                    alt="Osmium Team"
+                    className="w-full rounded-xl object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20 shadow-[inset_0_0_30px_rgba(255,255,255,0.3)] backdrop-blur-[0.5px] [mask-image:linear-gradient(to_center,black,transparent_40%)]" style={{maskImage: 'radial-gradient(ellipse at center, transparent 60%, black 100%)'}} />
+                </div>
               </div>
             </div>
           </div>

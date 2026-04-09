@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TabbedShowcase } from "@/components/ui/TabbedShowcase";
 
 const heroTabs = [
   { label: "Mock Tests", stat: "50%", statLabel: "Prediction Accuracy" },
@@ -227,6 +228,13 @@ export default function TestingPage() {
           </div>
         </div>
       </section>
+      {/* ━━━ TABBED SHOWCASE ━━━ */}
+      <section className="py-10 md:py-14">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <TabbedShowcase />
+        </div>
+      </section>
+
       {/* ━━━ TRUSTED BY ━━━ */}
       <section className="py-14 md:py-20 border-b border-black/[0.06]">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">

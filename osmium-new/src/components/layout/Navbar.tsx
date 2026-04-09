@@ -64,7 +64,7 @@ export function Navbar() {
           }}
         >
           {/* Desktop nav */}
-          <nav className="hidden lg:flex justify-between items-center py-2.5 pr-2.5 pl-9 w-full">
+          <nav className="hidden md:flex justify-between items-center py-2.5 pr-2.5 pl-9 w-full">
             <div className="flex flex-1 justify-between items-center mx-auto">
               {/* Logo */}
               <Link href="/" className="flex flex-1 items-center gap-2 transition-opacity hover:opacity-80">
@@ -73,7 +73,7 @@ export function Navbar() {
               </Link>
 
               {/* Center links */}
-              <div className="hidden lg:flex flex-2 justify-center items-center gap-1">
+              <div className="hidden md:flex flex-2 justify-center items-center gap-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -109,7 +109,7 @@ export function Navbar() {
           </nav>
 
           {/* Mobile nav */}
-          <div className="lg:hidden flex flex-col">
+          <div className="md:hidden flex flex-col">
             <div className="flex justify-between items-center px-6 py-2.5">
               <Link href="/" className="relative flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

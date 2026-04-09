@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import {
   Smartphone,
   Brain,
@@ -7,10 +9,7 @@ import {
   Palette,
   FileText,
   Video,
-  ArrowRight,
 } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const pillars = [
   {
@@ -18,6 +17,7 @@ const pillars = [
     desc: "Cross-platform design & development from start to finish. Android, iOS, Web, Desktop, and Game development.",
     icon: Smartphone,
     tags: ["Scalable", "Adaptive"],
+    bg: "/ref/eleven-creative.png",
   },
   {
     title: "AI & Automation",
@@ -25,12 +25,14 @@ const pillars = [
     icon: Brain,
     tags: ["Optimized", "Intelligent"],
     highlight: true,
+    bg: "/ref/eleven-agents.png",
   },
   {
     title: "Strategy & Management",
     desc: "From project management and marketing to research, cloud, and IoT — we help you scale with confidence.",
     icon: Star,
     tags: ["Reliable", "Growth-focused"],
+    bg: "/ref/eleven-api.png",
   },
 ];
 
@@ -43,22 +45,27 @@ const capabilities = [
 
 export function Platforms() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Intro heading — Osmium two-column style */}
         <ScrollReveal>
-          <SectionHeader
-            badge="How We Transform Your Business"
-            title={
-              <>
-                Our Proven &{" "}
-                <em className="font-[var(--font-dm-serif)] italic">
-                  Intelligent
-                </em>{" "}
-                Approach
-              </>
-            }
-            description="From analysis to implementation — everything you need to automate, optimize, and scale your operations."
-          />
+          <p className="block type-sm text-warm-500 font-medium mb-7">
+            How We Transform Your Business
+          </p>
+          <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12">
+            <div className="contents lg:block lg:col-span-6">
+              <h2 className="block text-black text-balance type-5xl max-w-lg lg:max-w-none">
+                Our Proven & Intelligent Approach
+              </h2>
+            </div>
+            <div className="flex flex-col mt-8 lg:mt-0 max-w-2xl lg:max-w-none lg:col-span-6">
+              <p className="block type-base mt-auto text-balance lg:text-pretty text-black">
+                From analysis to implementation — everything you need to
+                automate, optimize, and scale your operations.
+              </p>
+              <div className="h-0 flex-auto" style={{ maxHeight: "5rem" }} />
+            </div>
+          </div>
         </ScrollReveal>
 
         {/* Three pillars */}
@@ -66,66 +73,58 @@ export function Platforms() {
           {pillars.map((p, i) => (
             <ScrollReveal key={p.title} delay={i * 100}>
               <div
-                className={`flex h-full flex-col rounded-2xl border p-6 sm:p-8 ${
+                className={`group relative isolate h-full overflow-hidden rounded-[1.25rem] ${
                   p.highlight
-                    ? "border-black/10 bg-warm-50 shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_2px_4px_rgba(0,0,0,0.04)]"
-                    : "border-black/5 bg-white"
+                    ? "ring-[0.5px] ring-inset ring-black/[0.075]"
+                    : "ring-[0.5px] ring-inset ring-black/[0.075]"
                 }`}
+                style={{ backgroundColor: p.highlight ? "#f5f3f1" : "#fff" }}
               >
-                <div className="flex items-center gap-2">
-                  <p.icon className="h-4 w-4 text-warm-700" />
-                  <span className="text-sm text-warm-600">{p.title}</span>
+                <div className="relative flex h-full flex-col p-5 sm:p-7">
+                  {/* Card bg */}
+                  <div className="absolute inset-0 z-0 rounded-[1.25rem] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.bg} alt="" className="size-full object-cover opacity-10" />
+                  </div>
+                  <div className="flex items-center gap-2 mb-16">
+                    <div className={`flex items-center justify-center size-10 rounded-xl border ${
+                      p.highlight ? "border-black bg-black" : "border-black/[0.08] bg-white"
+                    }`}>
+                      <p.icon className={`h-5 w-5 ${p.highlight ? "text-white" : "text-black"}`} />
+                    </div>
+                  </div>
+                  <h3 className="type-sm font-medium text-warm-500 mt-auto">{p.title}</h3>
+                  <p className="mt-4 type-sm text-pretty text-black">{p.desc}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="inline-flex items-center rounded-md border border-black/5 bg-white/80 px-2 py-1 type-2xs text-warm-700">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <p className="mt-3 font-[var(--font-dm-serif)] text-xl tracking-tight">
-                  {p.title}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-warm-600">
-                  {p.desc}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center rounded-md border border-black/5 bg-white px-2 py-1 text-xs text-warm-700"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                <div className="pointer-events-none absolute inset-0 z-30 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
               </div>
             </ScrollReveal>
           ))}
         </div>
 
         {/* Capabilities row */}
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((c, i) => (
             <ScrollReveal key={c.title} delay={i * 80}>
-              <div className="rounded-xl border border-black/5 bg-white p-4">
+              <div className="rounded-xl border border-black/5 bg-white p-4 ring-[0.5px] ring-inset ring-black/[0.075]">
                 <div className="flex items-center gap-2">
                   <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-black/5 bg-warm-50">
                     <c.icon className="h-3.5 w-3.5 text-warm-700" />
                   </span>
-                  <h4 className="text-sm font-medium">{c.title}</h4>
+                  <h4 className="type-sm font-medium">{c.title}</h4>
                 </div>
-                <p className="mt-2 text-sm text-warm-500">{c.desc}</p>
+                <p className="mt-2 type-sm text-warm-500">{c.desc}</p>
               </div>
             </ScrollReveal>
           ))}
         </div>
-
-        {/* Learn more link */}
-        <ScrollReveal delay={200}>
-          <div className="mt-10 text-center">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-warm-700 transition-colors hover:text-black"
-            >
-              Learn more about our services
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );

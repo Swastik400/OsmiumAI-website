@@ -26,12 +26,8 @@ export function QBankContent() {
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
-        <div className="overflow-y-auto min-h-[34rem]" style={{ backgroundColor: "#f7f5f3" }}>
+        <div className="min-h-[34rem]" style={{ backgroundColor: "#f7f5f3" }}>
             <div className="px-5 pt-4 pb-6 space-y-4">
-                <p className="text-neutral-900 font-serif italic text-sm mb-2">
-                    Question bank for User Centric Design:
-                </p>
-
                 {QUESTIONS.map((q, i) => {
                     const open = expanded === i;
                     const dc = diffColor[q.difficulty];

@@ -1,121 +1,160 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const testimonials = [
-  [
-    {
-      text: "I used Osmium for my JEE prep. It felt less like an app and more like a study partner. The mock tests were scarily close to the actual exam pattern.",
-      name: "Priya Kumari",
-      role: "Student",
-      location: "Patna, Bihar",
-    },
-    {
-      text: "We tried Natraj in our college for managing course content. Usually, software means headaches, but this one was surprisingly smooth.",
-      name: "Dr. Mehul Shah",
-      role: "Professor",
-      location: "Ahmedabad, Gujarat",
-    },
-    {
-      text: "Our startup needed a website that didn't look like it was built in the 90s. Navchetna delivered exactly that. Clean, modern, and easy to use.",
-      name: "Raghav Malhotra",
-      role: "Founder",
-      location: "New Delhi",
-    },
-  ],
-  [
-    {
-      text: "I asked Navchetna for branding help and they made a logo so good that even my mom finally understood what my company does.",
-      name: "Arjun Nair",
-      role: "Professional",
-      location: "Bangalore",
-    },
-    {
-      text: "My son spends hours on Osmium and for the first time, I don't have to worry it's a waste of time. He actually studies!",
-      name: "Rajesh Yadav",
-      role: "Parent",
-      location: "Lucknow, UP",
-    },
-    {
-      text: "Working with Navchetna felt refreshing. No overpromises, just consistent delivery. The AI recommendation system they built works smoothly.",
-      name: "Lisa Wong",
-      role: "International Client",
-      location: "California, USA",
-    },
-  ],
+  {
+    name: "Priya Kumari",
+    role: "Student, Patna",
+    color: "#3b82f6",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Priya",
+    quote: "I used Osmium for my JEE prep. Honestly, it felt less like an app and more like a study partner. The mock tests were scarily close to the actual exam pattern. For someone from a small town like me, this feels like a big leap forward.",
+  },
+  {
+    name: "Dr. Mehul Shah",
+    role: "Professor, Ahmedabad",
+    color: "#8b5cf6",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Mehul",
+    quote: "We tried Natraj in our college for managing course content. Usually, software means headaches, but this one was surprisingly smooth. Even my less-tech-savvy colleagues figured it out. That's rare!",
+  },
+  {
+    name: "Raghav Malhotra",
+    role: "Founder, New Delhi",
+    color: "#22c55e",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Raghav",
+    quote: "Our startup needed a website that didn't look like it was built in the 90s. Navchetna delivered exactly that. Clean, modern, and easy to use. Now investors take us more seriously.",
+  },
+  {
+    name: "Arjun Nair",
+    role: "Professional, Bangalore",
+    color: "#f59e0b",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Arjun",
+    quote: "I asked Navchetna for branding help and they made a logo so good that even my mom finally understood what my company does. That's the real UX win here.",
+  },
+  {
+    name: "Rajesh Yadav",
+    role: "Parent, Lucknow",
+    color: "#ef4444",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Rajesh",
+    quote: "My son spends hours on Osmium and for the first time, I don't have to worry it's a waste of time. He actually studies, and sometimes even explains concepts to me. Not bad!",
+  },
 ];
 
+const INTERVAL = 5000;
+
 export function Testimonials() {
-  const [slide, setSlide] = useState(0);
+  const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  const goTo = useCallback((idx: number) => {
+    setFading(true);
+    setTimeout(() => {
+      setActive(idx);
+      setProgress(0);
+      setFading(false);
+    }, 200);
+  }, []);
+
+  useEffect(() => {
+    const tick = setInterval(() => {
+      setProgress((p) => {
+        if (p >= 100) {
+          goTo((active + 1) % testimonials.length);
+          return 0;
+        }
+        return p + 100 / (INTERVAL / 50);
+      });
+    }, 50);
+    return () => clearInterval(tick);
+  }, [active, goTo]);
+
+  const t = testimonials[active];
 
   return (
-    <section className="bg-warm-50 py-20 md:py-28">
+    <section className="pt-8 pb-4 md:pt-10 md:pb-6">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <ScrollReveal>
-          <SectionHeader
-            badge="Client Success"
-            title="What our partners say about driving growth."
-            description="Real results from real brands. See how we've helped companies scale their acquisition and maximize ROI."
-          />
-        </ScrollReveal>
+        <div className="relative border-l border-r border-black/[0.06]">
+          <div className="px-4 py-8 sm:px-6 md:py-10">
+            <ScrollReveal>
+              <div className="mb-6">
+                <p className="type-sm text-warm-500 font-medium mb-2">Client Success</p>
+                <h2 className="type-4xl text-black text-balance max-w-lg">
+                  What our partners say about driving growth
+                </h2>
+              </div>
 
-        <div className="mt-12">
-          <div className="grid gap-5 md:grid-cols-3">
-            {testimonials[slide].map((t) => (
-              <ScrollReveal key={t.name}>
-                <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-6">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-3.5 w-3.5 fill-amber-400 text-amber-400"
-                      />
-                    ))}
+              <div className="relative flex flex-col gap-x-10 gap-y-6 sm:flex-row sm:justify-between">
+                <div className="flex flex-auto flex-col gap-x-5 gap-y-3 sm:flex-auto md:flex-row md:items-start">
+                  {/* Avatar tabs with progress ring */}
+                  <div className="flex flex-none gap-5 items-center py-2">
+                    {testimonials.map((person, i) => {
+                      const isActive = active === i;
+                      const ringProgress = isActive ? progress : 0;
+                      const r = 22;
+                      const circumference = 2 * Math.PI * r;
+                      const dashOffset = circumference - (ringProgress / 100) * circumference;
+
+                      return (
+                        <button
+                          key={person.name}
+                          onClick={() => goTo(i)}
+                          className={`group relative cursor-pointer outline-none transition-all duration-300 ease-out ${
+                            isActive
+                              ? "scale-[1.25] z-10 drop-shadow-lg"
+                              : "scale-100 opacity-60 hover:opacity-90 hover:scale-110"
+                          }`}
+                          aria-label={person.name}
+                        >
+                          <svg viewBox="0 0 54 54" aria-hidden="true" style={{ width: "3.375rem", height: "3.375rem", margin: "-0.3125rem" }}>
+                            <defs>
+                              <clipPath id={`clip-nav-${i}`}>
+                                <rect width="44" height="44" x="5" y="5" rx="12" />
+                              </clipPath>
+                            </defs>
+                            <rect width="44" height="44" x="5" y="5" rx="12" fill={isActive ? person.color : "#E0DFDD"} className="transition-colors duration-300" />
+                            <image href={person.avatar} x="5" y="5" width="44" height="44" clipPath={`url(#clip-nav-${i})`} />
+                            {isActive && (
+                              <rect
+                                x="3" y="3" width="48" height="48" rx="14"
+                                fill="none" stroke={person.color} strokeWidth="2" strokeLinecap="round"
+                                strokeDasharray={circumference} strokeDashoffset={dashOffset}
+                                style={{ transition: "stroke-dashoffset 50ms linear" }}
+                              />
+                            )}
+                          </svg>
+                        </button>
+                      );
+                    })}
                   </div>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-warm-700">
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  <div className="mt-5 border-t border-black/5 pt-4">
-                    <p className="text-sm font-medium">
-                      {t.name} · {t.role}
-                    </p>
-                    <p className="mt-0.5 text-xs text-warm-500">{t.location}</p>
+
+                  {/* Text */}
+                  <div className="grid flex-auto min-h-[7rem]">
+                    <div className="col-start-1 row-start-1 py-1 transition-opacity duration-200" style={{ opacity: fading ? 0 : 1 }}>
+                      <div className="flex items-center gap-2 mb-1">
+                        <p className="type-sm font-medium text-black">{t.name}</p>
+                        <span className="type-xs text-warm-400">{t.role}</span>
+                      </div>
+                      <p className="mt-2 type-sm text-warm-500 text-pretty max-w-xl">
+                        {"\u201C"}{t.quote}{"\u201D"}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
 
-          {/* Nav */}
-          <div className="mt-8 flex items-center justify-between">
-            <button
-              onClick={() =>
-                setSlide((s) => (s - 1 + testimonials.length) % testimonials.length)
-              }
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-warm-600 transition-colors hover:bg-white hover:text-black"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSlide(i)}
-                  className={`h-2 w-2 rounded-full transition-colors ${
-                    slide === i ? "bg-black" : "bg-black/20"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={() => setSlide((s) => (s + 1) % testimonials.length)}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-warm-600 transition-colors hover:bg-white hover:text-black"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
+                {/* CTA */}
+                <div className="flex flex-none flex-wrap gap-2 flex-row-reverse justify-end sm:flex-row sm:justify-start sm:absolute sm:-top-0.5 sm:right-0 md:static md:-my-0.5">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.04),0_2px_4px_0_rgba(0,0,0,0.04)] transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-50 w-fit h-12 px-5 type-base"
+                  >
+                    Get started
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

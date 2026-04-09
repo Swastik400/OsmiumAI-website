@@ -21,11 +21,9 @@ export function SectionHeader({
           <Badge icon={badgeIcon}>{badge}</Badge>
         </div>
       )}
-      <h2 className="font-[var(--font-dm-serif)] text-3xl tracking-tight sm:text-4xl md:text-5xl">
-        {title}
-      </h2>
+      <h2 className="type-5xl text-black text-balance">{title}</h2>
       {description && (
-        <p className="mt-4 text-base text-warm-600 md:text-lg">{description}</p>
+        <p className="mt-4 type-base text-warm-600 md:type-lg">{description}</p>
       )}
     </div>
   );

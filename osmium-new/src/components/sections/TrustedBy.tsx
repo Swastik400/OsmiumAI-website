@@ -1,18 +1,10 @@
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { LogoCarousel } from "@/components/ui/LogoCarousel";
 
 const logos = [
-  { name: "AWS", src: null },
-  { name: "Sarvam AI", src: null },
-  { name: "SSIP", src: null },
-  { name: "NVIDIA", src: "/ref/nvidia.svg" },
-  { name: "NexTech", src: null },
-  { name: "TantriX", src: null },
-  { name: "Plenora", src: null },
-  { name: "Duolingo", src: "/ref/duolingo.svg" },
-  { name: "NineOne15²", src: null },
-  { name: "Aegis Auth", src: null },
-  { name: "Cars24", src: "/ref/cars24.svg" },
-  { name: "Meesho", src: "/ref/meesho.svg" },
+  { name: "AWS", src: "/ref/aws.svg", imgStyle: { transform: "rotate(-2deg)" } },
+  { name: "HomeGuru", src: "/ref/homeguru.svg" },
+  { name: "NineOne15²", src: "/ref/nineone.svg" },
 ];
 
 export function TrustedBy() {
@@ -32,33 +24,16 @@ export function TrustedBy() {
 
           <div className="py-16 md:py-20">
             <ScrollReveal>
-              <div className="px-4 sm:px-6">
-                <h2 className="type-base text-black text-balance max-w-lg">
+              <div className="flex flex-col items-center gap-8">
+                <p className="font-semibold text-black/40 text-xs uppercase tracking-[3px]">
                   Trusted by leading institutions and partners
-                </h2>
+                </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="mt-10 px-4 sm:px-6">
-                <ul className="mx-auto grid w-fit grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:gap-x-10">
-                  {logos.map((item) => (
-                    <li key={item.name} className="flex items-center justify-center h-8">
-                      {item.src ? (
-                        /* eslint-disable-next-line @next/next/no-img-element */
-                        <img
-                          src={item.src}
-                          alt={item.name}
-                          className="h-5 w-auto opacity-30 grayscale transition-all duration-200 hover:opacity-70 hover:grayscale-0"
-                        />
-                      ) : (
-                        <span className="type-sm font-medium text-black/30 transition-colors duration-200 hover:text-black/70">
-                          {item.name}
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-10">
+                <LogoCarousel logos={logos} speed={30} logoWidth={160} gap={80} />
               </div>
             </ScrollReveal>
           </div>

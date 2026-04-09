@@ -1,26 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Search, Handshake, Rocket, Zap, CheckCircle, HeartHandshake } from "lucide-react";
+import { Search, Handshake, Zap, CheckCircle, Rocket, HeartHandshake } from "lucide-react";
 
-const tabs = [
+const phases = [
   {
     id: "plan",
     label: "Plan",
     title: "Plan",
-    desc: "Every project begins with understanding. We listen, research, and map out a practical strategy. Together, we align on timelines, budgets, and goals.",
+    desc: "Every project begins with understanding. We listen, research, and map out a practical strategy. Together, we align on timelines, budgets, and goals to ensure clarity from the very start.",
     items: [
-      { icon: Search, title: "Research", desc: "Deep research and brainstorming help us understand your needs." },
-      { icon: Handshake, title: "Best Services", desc: "Reliable service and transparent communication from day one." },
+      { icon: Search, title: "Research", desc: "Deep research and brainstorming help us understand your needs better." },
+      { icon: Handshake, title: "Best Services", desc: "We promise reliable service and transparent communication from day one." },
     ],
   },
   {
     id: "development",
     label: "Development",
     title: "Development",
-    desc: "Our team brings ideas to life. From design to coding, we follow a structured approach that balances creativity with precision.",
+    desc: "With a clear plan in place, our team brings ideas to life. From design to coding, we follow a structured approach that balances creativity with precision — delivering solutions that are scalable and future-ready.",
     items: [
       { icon: Zap, title: "Agile Process", desc: "Flexible and adaptive to your needs." },
       { icon: CheckCircle, title: "Quality Focus", desc: "Every feature is tested for reliability." },
@@ -30,7 +29,7 @@ const tabs = [
     id: "release",
     label: "Release",
     title: "Release",
-    desc: "The final stage is all about delivery and impact. We launch with care, monitor performance, and provide ongoing support.",
+    desc: "The final stage is all about delivery and impact. We launch with care, monitor performance, and provide ongoing support to ensure your project continues to grow even after release.",
     items: [
       { icon: Rocket, title: "Smooth Launch", desc: "A hassle-free transition from build to live." },
       { icon: HeartHandshake, title: "Ongoing Support", desc: "We stand by your side post-release." },
@@ -40,79 +39,121 @@ const tabs = [
 
 export function Process() {
   const [active, setActive] = useState(0);
-  const current = tabs[active];
+  const current = phases[active];
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-4 md:py-6">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <ScrollReveal>
-          <SectionHeader
-            badge="How We Power Your Vision"
-            title={
-              <>
-                Simple,{" "}
-                <em className="font-[var(--font-dm-serif)] italic">Secure</em>,
-                Effective
-              </>
-            }
-            description="At Navchetna, every project deserves a thoughtful start, a strong build, and a confident launch."
-          />
-        </ScrollReveal>
-
-        {/* Tab toggle */}
-        <ScrollReveal delay={100}>
-          <div className="mt-10 flex justify-center">
-            <div className="relative inline-flex items-center rounded-full border border-black/10 bg-white p-1">
-              {tabs.map((t, i) => (
-                <button
-                  key={t.id}
-                  onClick={() => setActive(i)}
-                  className={`relative z-10 rounded-full px-5 py-2 text-sm transition-colors ${
-                    active === i
-                      ? "bg-black text-white"
-                      : "text-warm-600 hover:text-black"
-                  }`}
-                >
-                  {t.label}
-                </button>
-              ))}
+        <div className="relative border-l border-r border-black/[0.06]">
+          {/* Top dots */}
+          <div className="relative">
+            <div className="absolute left-0 top-0 z-20 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full" style={{ backgroundColor: "#FDFCFC" }}>
+              <div className="h-1.5 w-1.5 rounded-full bg-black" />
             </div>
+            <div className="absolute right-0 top-0 z-20 flex h-10 w-10 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full" style={{ backgroundColor: "#FDFCFC" }}>
+              <div className="h-1.5 w-1.5 rounded-full bg-black" />
+            </div>
+            <div className="h-px w-full bg-black/[0.06]" />
           </div>
-        </ScrollReveal>
 
-        {/* Content */}
-        <ScrollReveal delay={200}>
-          <div className="mt-12 rounded-[2rem] border border-black/5 bg-white p-8 md:p-12">
-            <div className="grid items-center gap-10 lg:grid-cols-2">
-              <div>
-                <h3 className="font-[var(--font-dm-serif)] text-3xl tracking-tight md:text-4xl">
-                  {current.title}
-                </h3>
-                <p className="mt-4 text-warm-600">{current.desc}</p>
-                <ul className="mt-6 space-y-4">
-                  {current.items.map((item) => (
-                    <li key={item.title} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-black/5 bg-warm-50">
-                        <item.icon className="h-4 w-4 text-warm-700" />
-                      </span>
-                      <div>
-                        <p className="text-sm font-medium">{item.title}</p>
-                        <p className="mt-0.5 text-sm text-warm-500">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </li>
+          <div className="px-4 sm:px-6 py-12 md:py-16">
+            <ScrollReveal>
+              {/* Heading */}
+              <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12 mb-10">
+                <div className="lg:col-span-6">
+                  <p className="type-xs text-brand font-medium uppercase tracking-wider mb-3">
+                    How We Power Your Vision
+                  </p>
+                  <h2 className="type-5xl text-black text-balance max-w-lg lg:max-w-none">
+                    Our Work Process: Simple, Secure, Effective
+                  </h2>
+                </div>
+                <div className="mt-6 lg:mt-0 lg:col-span-6 flex flex-col justify-end">
+                  <p className="type-sm text-warm-500 text-pretty">
+                    At Navchetna, we believe every project deserves a thoughtful
+                    start, a strong build, and a confident launch. Our process is
+                    designed to keep things clear, secure, and dependable.
+                  </p>
+                </div>
+              </div>
+
+              {/* Tab toggle */}
+              <div className="flex justify-center mb-10">
+                <div className="inline-flex items-center rounded-full ring-[0.5px] ring-inset ring-black/[0.075] bg-warm-50 p-1">
+                  {phases.map((p, i) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setActive(i)}
+                      className={`relative rounded-full px-6 py-2.5 type-sm font-medium transition-all duration-200 cursor-pointer ${
+                        active === i
+                          ? "bg-white text-black shadow-[0_0_1px_rgba(0,0,0,0.4),0_4px_4px_rgba(0,0,0,0.04)]"
+                          : "text-black/40 hover:text-black/60"
+                      }`}
+                    >
+                      {p.label}
+                    </button>
                   ))}
-                </ul>
+                </div>
               </div>
+            </ScrollReveal>
 
-              {/* Placeholder visual */}
-              <div className="flex items-center justify-center">
-                <div className="aspect-[4/3] w-full max-w-md rounded-2xl bg-warm-50 border border-black/5" />
+            {/* Content — split layout like APIShowcase */}
+            <ScrollReveal delay={100}>
+              <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+                {/* Left — text */}
+                <div className="relative px-2 md:px-6 text-pretty py-6 flex flex-col justify-between">
+                  <div key={active} className="animate-fade-up">
+                    <h3 className="type-xl text-black">{current.title}</h3>
+                    <div className="mt-4 type-base text-warm-500">
+                      <p>{current.desc}</p>
+                    </div>
+                    <ul className="mt-8 space-y-5">
+                      {current.items.map((item) => (
+                        <li key={item.title} className="flex items-start gap-3">
+                          <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-black/5 bg-warm-50">
+                            <item.icon className="h-4 w-4 text-warm-700" />
+                          </span>
+                          <div>
+                            <p className="type-sm font-medium text-black">{item.title}</p>
+                            <p className="mt-1 type-sm text-warm-500">{item.desc}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Vertical divider */}
+                <div className="hidden w-px lg:block bg-black/[0.06]" />
+
+                {/* Right — image */}
+                <div className="px-4 pb-4 lg:pt-4 flex">
+                  <div className="relative flex w-full rounded-[1.25rem] overflow-hidden">
+                    <div className="w-full" style={{ aspectRatio: "4/3" }} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={["/ref/gmhm1kxxzgd-Background7.jpeg", "/ref/9dzqkp3d2u4-app-creative.jpeg", "/ref/rlartawee0i-app-agents.jpeg"][active]}
+                      alt={current.title}
+                      className="absolute inset-0 size-full object-cover transition-opacity duration-500"
+                    />
+                    <div className="absolute inset-0 rounded-[1.25rem] ring-[0.5px] ring-black/[0.075] ring-inset pointer-events-none" />
+                  </div>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
+
+          {/* Bottom dots */}
+          <div className="relative">
+            <div className="absolute left-0 bottom-0 z-20 flex h-10 w-10 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full" style={{ backgroundColor: "#FDFCFC" }}>
+              <div className="h-1.5 w-1.5 rounded-full bg-black" />
+            </div>
+            <div className="absolute right-0 bottom-0 z-20 flex h-10 w-10 translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full" style={{ backgroundColor: "#FDFCFC" }}>
+              <div className="h-1.5 w-1.5 rounded-full bg-black" />
+            </div>
+            <div className="h-px w-full bg-black/[0.06]" />
+          </div>
+        </div>
       </div>
     </section>
   );

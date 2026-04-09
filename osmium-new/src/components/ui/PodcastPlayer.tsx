@@ -158,7 +158,7 @@ export function PodcastPlayer({ externalTab }: { externalTab?: string }) {
   return (
     <div className="relative mx-auto w-full max-w-[45rem] rounded-3xl bg-white ring-[0.5px] ring-inset ring-black/[0.075] flex flex-col overflow-hidden">
       {/* Header tabs */}
-      <div className="flex items-center gap-6 px-6 pt-5 pb-4 border-b border-black/5 overflow-x-auto scrollbar-none">
+      <div className="flex items-center gap-6 px-6 pt-6 pb-5 border-b border-black/5 overflow-x-auto scrollbar-none">
         {["Learn", "Podcast", "Quiz", "Flashcards", "Q. Bank"].map((tab) => (
           <button
             key={tab}

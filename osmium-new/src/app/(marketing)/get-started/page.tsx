@@ -31,9 +31,9 @@ export default function GetStartedPage() {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col lg:flex-row">
-      {/* Left — Branding + WhatsApp CTA */}
-      <div className="relative w-full lg:w-1/2 h-[30vh] lg:h-screen flex-none">
+    <div className="h-screen overflow-hidden flex flex-col md:flex-row">
+      {/* Left — Branding (hidden on mobile) */}
+      <div className="relative hidden md:flex w-full md:w-1/2 h-screen flex-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/ref/purpleblue.jpeg"
@@ -50,8 +50,8 @@ export default function GetStartedPage() {
       </div>
 
       {/* Right — Waitlist form */}
-      <div className="w-full lg:w-1/2 h-[70vh] lg:h-screen overflow-y-auto flex flex-col justify-center">
-        <div className="px-6 sm:px-10 md:px-14 lg:px-16 py-6 lg:py-8">
+      <div className="w-full md:w-1/2 h-screen overflow-y-auto flex flex-col justify-center">
+        <div className="px-6 sm:px-10 md:px-14 lg:px-16 py-6 md:py-8">
           {submitted ? (
             <div className="flex flex-col items-center justify-center text-center h-full min-h-[60vh]">
               <div className="size-14 rounded-full bg-brand/10 flex items-center justify-center mb-5">

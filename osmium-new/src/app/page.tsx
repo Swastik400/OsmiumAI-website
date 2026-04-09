@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
+import { StackLayers } from "@/components/sections/StackLayers";
 import { PlatformIntro } from "@/components/sections/PlatformIntro";
 import { BentoGrid } from "@/components/sections/BentoGrid";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -23,6 +24,9 @@ export default function Home() {
 
       {/* Social proof: logos */}
       <TrustedBy />
+
+      {/* Scroll-driven product showcase */}
+      <StackLayers />
 
       {/* ━━━ ACT 2: PRODUCT ━━━ */}
       {/* Platform intro heading + description */}
