@@ -4,25 +4,45 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { WebGLBackground } from "@/components/ui/WebGLBackground";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { LogoCarousel } from "@/components/ui/LogoCarousel";
+
+const logos = [
+  { name: "AWS", src: "/ref/aws.svg", imgStyle: { transform: "rotate(-2deg)" } },
+  { name: "HomeGuru", src: "/ref/homeguru.svg" },
+  { name: "NineOne15²", src: "/ref/nineone.svg" },
+];
 
 export function Hero() {
   return (
-    <section
-      className="relative h-screen min-h-[700px] w-full flex items-center justify-center overflow-hidden selection:bg-brand/30"
-      style={{ background: "linear-gradient(to bottom, #fff4e6 0%, #ffe0b2 40%, #ffcc80 70%, #ffcc80 100%)" }}
-    >
-      {/* Mountain Background */}
-      <div className="absolute bottom-0 left-0 right-0 h-[35%] z-0">
-        <WebGLBackground />
-      </div>
+    <section className="relative w-full overflow-hidden selection:bg-brand/30">
+      {/* ── Full background that covers hero + trusted by ── */}
       <div
-        className="absolute inset-0 z-[1]"
-        style={{ background: "linear-gradient(to bottom, #fff4e6 0%, rgba(255,224,178,0.7) 45%, transparent 70%)" }}
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, #fff4e6 0%, #ffe0b2 35%, #ffcc80 55%, #f5e6d0 78%, #FDFCFC 100%)",
+        }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center items-center text-center">
-        {/* Tag */}
+      {/* ── Mountain WebGL — sits in the middle band ── */}
+      <div className="absolute left-0 right-0 z-[1]" style={{ top: "45%", height: "30%" }}>
+        <WebGLBackground />
+      </div>
+
+      {/* ── Fog overlay to soften mountains into the gradient ── */}
+      <div
+        className="absolute left-0 right-0 z-[2]"
+        style={{
+          top: "45%",
+          height: "30%",
+          background:
+            "linear-gradient(to bottom, rgba(255,224,178,0.85) 0%, transparent 30%, transparent 60%, rgba(245,230,208,0.9) 100%)",
+        }}
+      />
+
+      {/* ── Hero content ── */}
+      <div className="relative z-10 h-screen min-h-[700px] flex flex-col justify-center items-center text-center px-6">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +53,6 @@ export function Hero() {
           India&apos;s AI Exam Strategist
         </motion.p>
 
-        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +65,6 @@ export function Hero() {
           <span style={{ color: "rgba(80, 40, 10, 0.55)" }}>We Predict Them.</span>
         </motion.h1>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +76,6 @@ export function Hero() {
           trained to predict what&apos;s coming next. Up to 50% of your real exam, decoded.
         </motion.p>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,6 +96,25 @@ export function Hero() {
             Explore features
           </Link>
         </motion.div>
+      </div>
+
+      {/* ── Trusted By — lives inside the same section ── */}
+      <div className="relative z-10 pb-20 md:pb-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <ScrollReveal>
+            <div className="flex flex-col items-center gap-8">
+              <p className="font-semibold text-xs uppercase tracking-[3px]" style={{ color: "rgba(100, 55, 20, 0.35)" }}>
+                Trusted by leading institutions and partners
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <div className="mt-10">
+              <LogoCarousel logos={logos} speed={30} logoWidth={160} gap={80} />
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
