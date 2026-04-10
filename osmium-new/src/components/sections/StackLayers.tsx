@@ -33,7 +33,7 @@ const layers = [
     description: "Access Osmium directly from WhatsApp. Ask doubts, take quizzes, get career guidance, and receive daily study reminders \u2014 all without downloading an app.",
     tags: ["Instant Doubts", "Daily Practice", "Reminders", "No App Needed"],
     image: "/AI study mentor chat interface design.png",
-    bg: "/ref/purpleblue.jpeg",
+    bg: "/ref/redchdw2op-bento-orange-blue-2@3x.jpeg",
   },
 ];
 
@@ -129,7 +129,7 @@ export function StackLayers() {
                     alt=""
                     className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/40" />
+                  <div className={`absolute inset-0 ${layer.id === "whatsapp" ? "bg-black/10" : "bg-black/40"}`} />
                 </div>
               ))}
 

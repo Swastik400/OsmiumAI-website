@@ -26,7 +26,7 @@ export function QBankContent() {
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
-        <div className="min-h-[34rem]" style={{ backgroundColor: "#f7f5f3" }}>
+        <div className="flex-auto overflow-y-auto" style={{ backgroundColor: "#f7f5f3", maxHeight: "24rem" }}>
             <div className="px-5 pt-4 pb-6 space-y-4">
                 {QUESTIONS.map((q, i) => {
                     const open = expanded === i;

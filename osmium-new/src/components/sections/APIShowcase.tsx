@@ -56,13 +56,13 @@ const codeLines: Token[][] = [
     { text: " });", role: "plain" },
   ],
   [],
-  [{ text: "// Generate a mock test", role: "comment" }],
+  [{ text: "// Generate a quiz", role: "comment" }],
   [
     { text: "const", role: "keyword" },
-    { text: " test", role: "func" },
+    { text: " quiz", role: "func" },
     { text: " = ", role: "plain" },
     { text: "await", role: "keyword" },
-    { text: " client.mockTests.generate({", role: "plain" },
+    { text: " client.quiz.generate({", role: "plain" },
   ],
   [
     { text: "  subject:", role: "func" },
@@ -70,8 +70,8 @@ const codeLines: Token[][] = [
     { text: ",", role: "plain" },
   ],
   [
-    { text: "  exam:", role: "func" },
-    { text: ' "jee_mains_2025"', role: "string" },
+    { text: "  topic:", role: "func" },
+    { text: ' "electromagnetism"', role: "string" },
     { text: ",", role: "plain" },
   ],
   [
@@ -81,7 +81,7 @@ const codeLines: Token[][] = [
   ],
   [
     { text: "  questions:", role: "func" },
-    { text: " 30", role: "string" },
+    { text: " 10", role: "string" },
     { text: ",", role: "plain" },
   ],
   [{ text: "});", role: "plain" }],

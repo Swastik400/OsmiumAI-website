@@ -338,6 +338,76 @@ function PlanCard({ plan, billing }: { plan: Plan; billing: Billing }) {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+
+        {/* SVG illustration */}
+        <div className="absolute top-3 right-3 z-10">
+          {plan.name === "Free" && (
+            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+              {/* Seedling growing */}
+              <line x1="55" y1="90" x2="55" y2="55" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M55 55C55 55 40 50 35 38C48 38 55 48 55 55Z" fill="white" fillOpacity="0.3" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+              <path d="M55 65C55 65 70 58 78 48C65 46 55 58 55 65Z" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+              {/* Ground */}
+              <path d="M35 90C40 87 48 86 55 86C62 86 70 87 75 90" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              {/* Sun */}
+              <circle cx="85" cy="22" r="8" stroke="white" strokeWidth="2" />
+              <line x1="85" y1="8" x2="85" y2="12" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="85" y1="32" x2="85" y2="36" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="71" y1="22" x2="75" y2="22" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="95" y1="22" x2="99" y2="22" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="75" y1="12" x2="78" y2="15" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="92" y1="29" x2="95" y2="32" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="75" y1="32" x2="78" y2="29" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="92" y1="15" x2="95" y2="12" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          )}
+          {plan.name === "Pro" && (
+            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+              {/* Lotus — center petal */}
+              <path d="M55 62C55 62 46 48 55 28C64 48 55 62 55 62Z" fill="white" fillOpacity="0.3" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+              {/* Lotus — left petal */}
+              <path d="M55 62C55 62 36 56 25 42C40 40 55 52 55 62Z" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+              {/* Lotus — right petal */}
+              <path d="M55 62C55 62 74 56 85 42C70 40 55 52 55 62Z" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+              {/* Lotus — far left petal */}
+              <path d="M55 62C55 62 32 62 18 52C32 46 50 56 55 62Z" fill="white" fillOpacity="0.15" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
+              {/* Lotus — far right petal */}
+              <path d="M55 62C55 62 78 62 92 52C78 46 60 56 55 62Z" fill="white" fillOpacity="0.15" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
+              {/* Center dot */}
+              <circle cx="55" cy="52" r="4" fill="white" />
+              {/* Stem */}
+              <path d="M55 62V90" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              {/* Left curving leaf */}
+              <path d="M55 78C50 80 44 78 42 74" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Right curving leaf */}
+              <path d="M55 84C60 86 66 84 68 80" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Accent dots */}
+              <circle cx="18" cy="22" r="2" fill="white" />
+              <circle cx="92" cy="22" r="2" fill="white" />
+              <circle cx="55" cy="98" r="1.5" fill="white" />
+            </svg>
+          )}
+          {plan.name === "Premium" && (
+            <svg width="110" height="110" viewBox="0 0 110 110" fill="none">
+              {/* Trophy */}
+              <path d="M38 30H72V55C72 66 62 75 55 75C48 75 38 66 38 55V30Z" stroke="white" strokeWidth="2.5" strokeLinejoin="round" />
+              <path d="M38 38H28C28 38 26 52 38 52" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M72 38H82C82 38 84 52 72 52" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Base */}
+              <line x1="55" y1="75" x2="55" y2="85" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M42 85H68" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M39 90H71" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              {/* Star on trophy */}
+              <path d="M55 40l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6z" fill="white" fillOpacity="0.4" stroke="white" strokeWidth="1.5" strokeLinejoin="round" />
+              {/* Sparkles */}
+              <path d="M22 20l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" fill="white" />
+              <path d="M88 15l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5 1.5-4z" fill="white" />
+              <path d="M92 70l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z" fill="white" />
+              <circle cx="18" cy="70" r="2" fill="white" />
+            </svg>
+          )}
+        </div>
+
         <div className="relative z-10 p-6 flex flex-col justify-end h-full">
           <div className="flex items-center gap-2.5">
             <h3 className="type-3xl" style={{ color: "#ffffff" }}>{plan.name}</h3>

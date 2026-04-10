@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 
     // Two-host podcast voices: shubh (male/default) and roopa (female)
     const voiceName = speaker === "female" || speaker === "roopa" ? "roopa" : "shubh";
-    const pace = voiceName === "shubh" ? 1.11 : 1.1;
+    const isRoopa = voiceName === "roopa";
 
     const res = await fetch("https://api.sarvam.ai/text-to-speech", {
       method: "POST",
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
         inputs: [text],
         target_language_code: "en-IN",
         speaker: voiceName,
-        pace,
+        pace: isRoopa ? 1.12 : 1.02,
         model: "bulbul:v3",
         sample_rate: 22050,
         enable_preprocessing: true,

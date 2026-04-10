@@ -45,6 +45,7 @@ export function PodcastPlayer({ externalTab }: { externalTab?: string }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const sessionRef = useRef(0);
   const transcriptRef = useRef<HTMLDivElement>(null);
+  const cacheRef = useRef<Map<number, string>>(new Map());
 
   // Sync with external tab prop
   useEffect(() => {
@@ -60,6 +61,31 @@ export function PodcastPlayer({ externalTab }: { externalTab?: string }) {
     }
   }, []);
 
+  const fetchSegmentAudio = useCallback(async (idx: number): Promise<string | null> => {
+    if (idx >= SEGMENTS.length) return null;
+    const cached = cacheRef.current.get(idx);
+    if (cached) return cached;
+    try {
+      const res = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: SEGMENTS[idx].text, speaker: SEGMENTS[idx].gender }),
+      });
+      if (!res.ok) return null;
+      const data = await res.json();
+      if (data.audio) cacheRef.current.set(idx, data.audio);
+      return data.audio || null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const prefetch = useCallback((idx: number) => {
+    if (idx < SEGMENTS.length && !cacheRef.current.has(idx)) {
+      fetchSegmentAudio(idx);
+    }
+  }, [fetchSegmentAudio]);
+
   const loadAndPlay = useCallback(async (idx: number, session: number) => {
     if (idx >= SEGMENTS.length) {
       setStatus("idle");
@@ -72,43 +98,32 @@ export function PodcastPlayer({ externalTab }: { externalTab?: string }) {
     setProgress((idx / SEGMENTS.length) * 100);
     setStatus("loading");
 
-    try {
-      const res = await fetch("/api/tts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: SEGMENTS[idx].text, speaker: SEGMENTS[idx].gender }),
-      });
+    // Prefetch next segment while current one loads/plays
+    prefetch(idx + 1);
 
-      if (session !== sessionRef.current) return; // stale
-
-      if (!res.ok) {
-        setStatus("idle");
-        return;
-      }
-
-      const data = await res.json();
-      if (session !== sessionRef.current || !data.audio) return;
-
-      killAudio();
-      const audio = new Audio(`data:audio/wav;base64,${data.audio}`);
-      audioRef.current = audio;
-
-      audio.onended = () => {
-        if (session !== sessionRef.current) return;
-        setProgress(((idx + 1) / SEGMENTS.length) * 100);
-        loadAndPlay(idx + 1, session);
-      };
-      audio.onerror = () => {
-        if (session !== sessionRef.current) return;
-        setStatus("idle");
-      };
-
-      setStatus("playing");
-      await audio.play();
-    } catch {
+    const audioBase64 = await fetchSegmentAudio(idx);
+    if (session !== sessionRef.current || !audioBase64) {
       if (session === sessionRef.current) setStatus("idle");
+      return;
     }
-  }, [killAudio]);
+
+    killAudio();
+    const audio = new Audio(`data:audio/wav;base64,${audioBase64}`);
+    audioRef.current = audio;
+
+    audio.onended = () => {
+      if (session !== sessionRef.current) return;
+      setProgress(((idx + 1) / SEGMENTS.length) * 100);
+      loadAndPlay(idx + 1, session);
+    };
+    audio.onerror = () => {
+      if (session !== sessionRef.current) return;
+      setStatus("idle");
+    };
+
+    setStatus("playing");
+    await audio.play();
+  }, [killAudio, fetchSegmentAudio, prefetch]);
 
   const startFrom = useCallback((idx: number) => {
     killAudio();

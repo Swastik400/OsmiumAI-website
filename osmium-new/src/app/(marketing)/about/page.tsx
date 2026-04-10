@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -171,7 +171,7 @@ export default function AboutPage() {
             Scroll to explore
           </span>
           <div className="relative w-5 h-9 rounded-full border-2 border-white/30 group-hover:border-white/60 transition-colors">
-            <div className="absolute left-1/2 top-1.5 w-1 h-2 -translate-x-1/2 rounded-full bg-white/70 animate-[scrollDot_1.8s_ease-in-out_infinite]" />
+            <div className="absolute left-1/2 top-1.5 w-1 h-2 rounded-full bg-white/70 animate-[scrollDot_1.8s_ease-in-out_infinite]" />
           </div>
           <svg viewBox="0 0 16 16" fill="none" className="size-3.5 text-white/40 group-hover:text-white/70 animate-bounce transition-colors">
             <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -261,7 +261,7 @@ export default function AboutPage() {
                   </div>
                   <div className="relative h-64 lg:h-auto">
                     <Image
-                      src="/ref/gmhm1kxxzgd-Background7.jpeg"
+                      src="/team2.jpeg"
                       alt="The beginning"
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -275,13 +275,14 @@ export default function AboutPage() {
             {/* Block 2 */}
             <ScrollReveal>
               <div className="relative rounded-3xl overflow-hidden bg-warm-50 ring-[0.5px] ring-inset ring-black/[0.06]">
-                <div className="grid lg:grid-cols-2">
-                  <div className="relative h-64 lg:h-auto order-2 lg:order-1">
+                <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
+                  <div className="relative h-48 lg:h-auto order-2 lg:order-1">
                     <Image
-                      src="/ref/9dzqkp3d2u4-app-creative.jpeg"
+                      src="/team3.jpeg"
                       alt="Building the prototype"
                       fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      unoptimized
+                      sizes="(max-width: 1024px) 100vw, 40vw"
                       className="object-cover"
                     />
                   </div>
@@ -321,7 +322,7 @@ export default function AboutPage() {
                   </div>
                   <div className="relative h-64 lg:h-auto">
                     <Image
-                      src="/ref/rlartawee0i-app-agents.jpeg"
+                      src="/team1.jpeg"
                       alt="Hostel culture"
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"

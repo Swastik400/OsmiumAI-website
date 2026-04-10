@@ -24,6 +24,7 @@ const comparisons = [
   { feature: "Career Guidance", traditional: "Ask parents or relatives", osmium: "AI maps your skills to ideal career paths" },
   { feature: "Mental Health", traditional: "Ignored completely", osmium: "Built-in wellness check-ins and stress support" },
   { feature: "Accessibility", traditional: "Limited to classroom hours", osmium: "Learn anywhere, anytime, on any device" },
+  { feature: "WhatsApp Learning", traditional: "No learning outside apps or classrooms", osmium: "Study anywhere, anytime directly on WhatsApp" },
 ];
 
 export function Comparison() {
@@ -49,11 +50,11 @@ export function Comparison() {
                   <div className="px-4 py-3 sm:px-6 sm:py-5">
                     <span className="type-xs font-medium text-warm-500 uppercase tracking-wider">Feature</span>
                   </div>
-                  <div className="px-4 py-3 sm:px-6 sm:py-5 border-l border-black/[0.06]">
-                    <span className="type-xs font-medium text-warm-500 uppercase tracking-wider">Traditional</span>
-                  </div>
                   <div className="px-4 py-3 sm:px-6 sm:py-5 border-l border-black/[0.06] bg-black">
                     <span className="type-xs font-medium text-white uppercase tracking-wider">Osmium AI</span>
+                  </div>
+                  <div className="px-4 py-3 sm:px-6 sm:py-5 border-l border-black/[0.06]">
+                    <span className="type-xs font-medium text-warm-500 uppercase tracking-wider">Traditional</span>
                   </div>
                 </div>
 
@@ -70,13 +71,13 @@ export function Comparison() {
                     <div className="px-4 py-3 sm:px-6 sm:py-5 flex items-start">
                       <span className="type-xs sm:type-sm font-medium text-black">{c.feature}</span>
                     </div>
-                    <div className="px-4 py-3 sm:px-6 sm:py-5 border-l border-black/[0.04] flex items-start gap-2">
-                      <XIcon />
-                      <span className="type-2xs sm:type-xs text-warm-500">{c.traditional}</span>
-                    </div>
                     <div className="px-4 py-3 sm:px-6 sm:py-5 border-l border-black/[0.04] bg-black/[0.02] flex items-start gap-2">
                       <CheckIcon />
                       <span className="type-2xs sm:type-xs text-black font-medium">{c.osmium}</span>
+                    </div>
+                    <div className="px-4 py-3 sm:px-6 sm:py-5 border-l border-black/[0.04] flex items-start gap-2">
+                      <XIcon />
+                      <span className="type-2xs sm:type-xs text-warm-500">{c.traditional}</span>
                     </div>
                   </div>
                 ))}

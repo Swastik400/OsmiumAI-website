@@ -37,21 +37,35 @@ export function FlashcardContent() {
                     <div className="absolute inset-x-3 top-0 bottom-3 rounded-xl bg-[#d8d8d8]" />
                     {/* Back card 1 */}
                     <div className="absolute inset-x-1.5 top-0 bottom-1.5 rounded-xl bg-[#e8e8e8]" />
-                    {/* Main card */}
+                    {/* Main card — 3D flip */}
                     <div
-                        className="relative w-full h-full rounded-xl flex flex-col p-5 cursor-pointer select-none transition-colors duration-300"
-                        style={{ backgroundColor: flipped ? "#FFFFFF" : "#33342E" }}
+                        className="relative w-full h-full cursor-pointer select-none"
+                        style={{ perspective: "800px" }}
                         onClick={() => setFlipped(!flipped)}
                     >
-                        <p
-                            className={`flex-1 font-bold type-base leading-relaxed transition-colors duration-300 ${flipped ? "text-neutral-900" : "text-white"}`}
+                        <div
+                            className="relative w-full h-full transition-transform duration-500"
+                            style={{ transformStyle: "preserve-3d", transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
                         >
-                            {flipped ? card.answer : card.question}
-                        </p>
-                        <hr className={`my-3 transition-colors duration-300 ${flipped ? "border-neutral-200" : "border-[#4d4d4d]"}`} />
-                        <p className={`type-xs text-center transition-colors duration-300 ${flipped ? "text-neutral-400" : "text-[#888]"}`}>
-                            {flipped ? "Tap to see question" : "Tap to see answer"}
-                        </p>
+                            {/* Front */}
+                            <div
+                                className="absolute inset-0 rounded-xl flex flex-col p-5"
+                                style={{ backfaceVisibility: "hidden", backgroundColor: "#33342E" }}
+                            >
+                                <p className="flex-1 font-bold type-base leading-relaxed text-white">{card.question}</p>
+                                <hr className="my-3 border-[#4d4d4d]" />
+                                <p className="type-xs text-center text-[#888]">Tap to see answer</p>
+                            </div>
+                            {/* Back */}
+                            <div
+                                className="absolute inset-0 rounded-xl flex flex-col p-5"
+                                style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", backgroundColor: "#FFFFFF" }}
+                            >
+                                <p className="flex-1 font-bold type-base leading-relaxed text-neutral-900">{card.answer}</p>
+                                <hr className="my-3 border-neutral-200" />
+                                <p className="type-xs text-center text-neutral-400">Tap to see question</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
