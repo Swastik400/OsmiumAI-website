@@ -261,12 +261,7 @@ export function HelpButton() {
       >
         {open ? (
           <X className="size-4 text-white" />
-        ) : (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Osmium" className="h-5 w-auto" />
-          </>
-        )}
+        ) : null}
         <p className={`type-sm font-medium whitespace-nowrap ${open ? "text-white" : "text-black"}`}>
           {open ? "Close" : (
             <>

@@ -10,7 +10,7 @@ const features = [
     tag: "Exam Prediction",
     title: "Smart Mock Tests",
     desc: "AI-generated tests trained on thousands of past papers. Adaptive difficulty that adjusts to your level, real exam patterns, instant scoring, and detailed analytics.",
-    image: "/mock.png",
+    image: "/Group 1712.png",
     color: "#E8D5C4",
   },
   {
@@ -18,7 +18,7 @@ const features = [
     tag: "AI Tutor",
     title: "Ask. Understand. Master.",
     desc: "Get crystal-clear answers in seconds with visual explanations, step-by-step logic, and real examples. Like having a personal tutor available 24/7.",
-    image: "/chat.png",
+    image: "/chatbot 2.png",
     color: "#D5E0E8",
   },
   {

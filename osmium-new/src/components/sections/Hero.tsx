@@ -80,8 +80,8 @@ export function Hero() {
           </Link>
           <Link
             href="#features"
-            className="inline-flex items-center gap-2 rounded-full border text-sm font-medium px-6 py-2.5 transition-all duration-300 hover:border-[rgba(100,55,20,0.4)]"
-            style={{ borderColor: "rgba(100, 55, 20, 0.2)", color: "rgba(100, 55, 20, 0.6)" }}
+            className="inline-flex items-center gap-2 rounded-full border text-sm font-medium px-6 py-2.5 transition-all duration-300 hover:bg-[rgba(100,55,20,0.08)] hover:border-[rgba(100,55,20,0.5)] hover:text-[rgba(100,55,20,0.9)] active:scale-[0.98]"
+            style={{ borderColor: "rgba(100, 55, 20, 0.3)", color: "rgba(100, 55, 20, 0.7)" }}
           >
             Explore features
           </Link>

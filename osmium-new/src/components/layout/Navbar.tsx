@@ -91,6 +91,7 @@ export function Navbar() {
               <Link href="/" className="flex flex-1 items-center gap-2 transition-opacity hover:opacity-80">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/logo.png" alt="Osmium" className="w-auto h-5" />
+                <span className="font-medium text-xs uppercase tracking-[1px] text-black">Osmium Ai</span>
               </Link>
 
               {/* Center links */}
@@ -135,6 +136,7 @@ export function Navbar() {
               <Link href="/" className="relative flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/logo.png" alt="Osmium" className="w-auto h-4" />
+                <span className="font-medium text-xs uppercase tracking-[1px] text-black">Osmium Ai</span>
               </Link>
 
               <button
