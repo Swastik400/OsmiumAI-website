@@ -13,35 +13,38 @@ const team = [
     name: "Ayushmaan Soni",
     role: "Founder",
     desc: "Tech entrepreneur driving AI innovation with projects like Osmium. From childhood experiments with electronics to leading AI-driven solutions.",
-    avatar: "/ref/voice-bg-04.png",
+    avatar: "/team/ayush.jpg",
     linkedin: "https://www.linkedin.com/in/422h52219hsuya/",
   },
   {
     name: "Varun Yadav",
     role: "Co-Founder",
     desc: "Skilled backend developer passionate about building scalable systems. Lead backend developer for Osmium\u2019s AI-powered infrastructure.",
-    avatar: "/ref/voice-bg-01.png",
+    avatar: "/team/varun.jpg",
     linkedin: "https://www.linkedin.com/in/varun-yadav-navchetna/",
+    objectPos: "center 30%",
   },
   {
     name: "Swastik Khatua",
     role: "Co-Founder",
     desc: "Frontend developer passionate about UI/UX and AI-driven EdTech solutions. Instrumental in crafting seamless user experiences with modern web technologies.",
-    avatar: "/ref/voice-bg-03.png",
+    avatar: "/team/swastik.jpg",
     linkedin: "https://www.linkedin.com/in/swastik-khatua-84798631b/",
   },
   {
     name: "Suman Yadav",
     role: "Co-Founder",
     desc: "Head of Design with passion for technology and creativity. The mind behind Osmium\u2019s UI/UX, ensuring seamless and engaging user experiences.",
-    avatar: "/ref/voice-bg-05.png",
+    avatar: "/team/suman.jpg",
     linkedin: "https://www.linkedin.com/in/suman-yadav-bb5516322/",
+    objectPos: "center 50%",
+    imgScale: "0.75",
   },
   {
     name: "Dhraval Narsinha",
     role: "Co-Founder",
     desc: "Frontend developer passionate about building seamless user experiences. Instrumental in shaping Osmium\u2019s interface with focus on UI/UX and frontend technologies.",
-    avatar: "/ref/voice-bg-07.png",
+    avatar: "/team/dharaval.jpg",
     linkedin: "https://www.linkedin.com/in/dhraval-narsinha-navchetna125/",
   },
 ];
@@ -422,7 +425,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           {/* Top row: 3 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {team.slice(0, 3).map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 80}>
                 <TeamCard member={member} />
@@ -431,7 +434,7 @@ export default function AboutPage() {
           </div>
 
           {/* Bottom row: 2 cards centered */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 max-w-2xl mx-auto lg:max-w-none lg:grid-cols-2 lg:px-[calc(100%/6)]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 max-w-xl mx-auto lg:max-w-2xl lg:grid-cols-2">
             {team.slice(3).map((member, i) => (
               <ScrollReveal key={member.name} delay={(i + 3) * 80}>
                 <TeamCard member={member} />
@@ -499,17 +502,18 @@ export default function AboutPage() {
 
 /* ── Team card component ── */
 
-function TeamCard({ member }: { member: (typeof team)[number] }) {
+function TeamCard({ member }: { member: (typeof team)[number] & { objectPos?: string } }) {
   return (
     <div className="group relative isolate h-full overflow-hidden rounded-2xl bg-warm-50 ring-[0.5px] ring-inset ring-black/[0.06] transition-all duration-500 hover:ring-black/[0.12] hover:shadow-lg">
-      {/* Avatar area */}
-      <div className="relative h-52 sm:h-60 overflow-hidden bg-warm-100">
+      {/* Avatar area — square */}
+      <div className="relative w-full aspect-[5/5.5] overflow-hidden bg-warm-100">
         <Image
           src={member.avatar}
           alt={member.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
+          style={{ objectPosition: member.objectPos || "center 20%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
