@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd osmium-new && npm run build",
+  "outputDirectory": "osmium-new/.next",
+  "installCommand": "cd osmium-new && npm install",
+  "framework": "nextjs"
+}
