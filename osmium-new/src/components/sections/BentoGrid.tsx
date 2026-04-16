@@ -125,28 +125,20 @@ export function BentoGrid() {
 
           {/* ── Large card 2: AI Podcast Player ── */}
           <ScrollReveal className="col-span-full lg:col-span-6" delay={100}>
-            <div className="group relative isolate h-full overflow-hidden rounded-[1.25rem]" style={{ backgroundColor: "#f5f3f1" }}>
-              <div className="relative flex h-full flex-col px-5 pb-6 sm:px-7 sm:pb-8">
-                {/* Podcast UI */}
-                <div className="relative z-20 h-[34rem] pt-6">
-                  <div className="flex h-full flex-col">
-                    <PodcastPlayer externalTab={podcastTab} />
-                  </div>
-                </div>
-
-                <h3 className="type-sm font-medium text-warm-500">
-                  <Link href="/#features" className="inline-flex items-center gap-1.5 outline-none">
-                    {currentInfo.title}
-                    <svg viewBox="0 0 24 24" fill="none" className="h-3 w-3 flex-none opacity-0 transition-opacity group-hover:opacity-100">
-                      <path d="M18.25 15.25V5.75M18.25 5.75H8.75M18.25 5.75L6 18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
-                    </svg>
-                  </Link>
-                </h3>
-                <p className="mt-4 type-sm text-pretty text-black">
-                  {currentInfo.desc}
-                </p>
-                <div className="pointer-events-none absolute inset-0 z-30 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
+            <div className="relative z-20 h-[34rem]">
+              <div className="flex h-full flex-col">
+                <PodcastPlayer externalTab={podcastTab} onTabChange={setPodcastTab} />
               </div>
+            </div>
+            <div className="mt-4">
+              <h3 className="type-sm font-medium text-warm-500">
+                <Link href="/#features" className="inline-flex items-center gap-1.5 outline-none">
+                  {currentInfo.title}
+                </Link>
+              </h3>
+              <p className="mt-2 type-sm text-pretty text-black">
+                {currentInfo.desc}
+              </p>
             </div>
           </ScrollReveal>
 
@@ -191,6 +183,7 @@ export function BentoGrid() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

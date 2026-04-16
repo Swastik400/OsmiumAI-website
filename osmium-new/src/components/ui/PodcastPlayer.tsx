@@ -37,7 +37,7 @@ const SEGMENTS: Segment[] = [
   },
 ];
 
-export function PodcastPlayer({ externalTab }: { externalTab?: string }) {
+export function PodcastPlayer({ externalTab, onTabChange }: { externalTab?: string; onTabChange?: (tab: string) => void }) {
   const [status, setStatus] = useState<"idle" | "loading" | "playing" | "paused">("idle");
   const [activeIdx, setActiveIdx] = useState(-1);
   const [progress, setProgress] = useState(0);
@@ -171,13 +171,13 @@ export function PodcastPlayer({ externalTab }: { externalTab?: string }) {
   const [quizKey, setQuizKey] = useState(0);
 
   return (
-    <div className="relative mx-auto w-full max-w-[45rem] rounded-3xl bg-white ring-[0.5px] ring-inset ring-black/[0.075] flex flex-col overflow-hidden">
+    <div className="relative mx-auto w-full max-w-[45rem] rounded-3xl bg-[#ffffff] ring-[0.5px] ring-inset ring-black/[0.075] flex flex-col overflow-hidden">
       {/* Header tabs */}
       <div className="flex items-center gap-6 px-6 pt-6 pb-5 border-b border-black/5 overflow-x-auto scrollbar-none">
         {["Learn", "Podcast", "Quiz", "Flashcards", "Q. Bank"].map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => { setActiveTab(tab); onTabChange?.(tab); }}
             className={`text-base whitespace-nowrap pb-2 transition-all duration-150 ${activeTab === tab
               ? "text-black font-semibold border-b-2 border-black"
               : "text-warm-400 hover:text-black"
