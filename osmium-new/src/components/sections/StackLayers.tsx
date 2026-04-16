@@ -145,7 +145,7 @@ export function StackLayers() {
               {layers.map((layer, i) => (
                 <div
                   key={layer.id}
-                  className="absolute inset-0 flex items-center justify-center p-6 md:p-10"
+                  className="absolute inset-6 md:inset-10 flex items-center justify-center"
                   style={{
                     ...getImageStyle(i),
                     willChange: "transform, opacity",
