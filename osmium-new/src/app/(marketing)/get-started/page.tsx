@@ -32,7 +32,7 @@ export default function GetStartedPage() {
 
   return (
     <div className="h-screen overflow-hidden flex flex-col md:flex-row">
-      {/* Left — Branding (hidden on mobile) */}
+      {/* Left  Branding (hidden on mobile) */}
       <div className="relative hidden md:flex w-full md:w-1/2 h-screen flex-none">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -49,7 +49,7 @@ export default function GetStartedPage() {
 
       </div>
 
-      {/* Right — Waitlist form */}
+      {/* Right  Waitlist form */}
       <div className="w-full md:w-1/2 h-screen overflow-y-auto flex flex-col justify-center">
         <div className="px-6 sm:px-10 md:px-14 lg:px-16 py-6 md:py-8">
           {submitted ? (

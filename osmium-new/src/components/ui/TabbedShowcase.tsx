@@ -14,9 +14,9 @@ const tabs = [
     desc: "Our AI analyzes thousands of past papers to generate mock tests that mirror your real exam. Adaptive difficulty, instant scoring, and deep performance insights.",
     image: "/Group 1712.png",
     subtabs: [
-      { label: "Paper Generate", text: "Upload any 5 previous year question papers from JEE, NEET, CUET, or any competitive exam — our AI analyzes patterns and generates a predicted paper with up to 50% accuracy." },
+      { label: "Paper Generate", text: "Upload any 5 previous year question papers from JEE, NEET, CUET, or any competitive exam  our AI analyzes patterns and generates a predicted paper with up to 50% accuracy." },
       { label: "Adaptive", text: "Difficulty adjusts in real-time based on your performance. Stronger in mechanics? We push harder. Weak in optics? We reinforce." },
-      { label: "Scoring", text: "Instant results with detailed breakdowns — subject-wise, topic-wise, and question-wise. Know exactly where you stand." },
+      { label: "Scoring", text: "Instant results with detailed breakdowns  subject-wise, topic-wise, and question-wise. Know exactly where you stand." },
       { label: "Analytics", text: "Track your progress over time with visual dashboards. Spot weak areas, monitor consistency, and see your growth trajectory." },
     ],
   },
@@ -28,7 +28,7 @@ const tabs = [
     desc: "Get instant, step-by-step answers to any question. Visual explanations, concept breakdowns, and practice problems across 70+ languages.",
     image: "/Group 1713.png",
     subtabs: [
-      { label: "Doubt Solving", text: "Ask any question and get crystal-clear answers instantly. No waiting, no scheduling — just type and learn." },
+      { label: "Doubt Solving", text: "Ask any question and get crystal-clear answers instantly. No waiting, no scheduling  just type and learn." },
       { label: "Concepts", text: "Deep concept breakdowns with visual diagrams, analogies, and real-world examples that make complex topics click." },
       { label: "Practice", text: "AI-generated practice problems tailored to your weak areas. Each question builds on what you got wrong before." },
       { label: "Languages", text: "Learn in your language. Osmium supports 70+ languages so every student can understand concepts in their mother tongue." },
@@ -53,13 +53,13 @@ const tabs = [
     label: "WhatsApp",
     shortLabel: "WhatsApp",
     heading: "Learn on WhatsApp",
-    desc: "Access Osmium directly from WhatsApp. Ask doubts, take quizzes, get career guidance, and receive daily study reminders — all without downloading an app.",
+    desc: "Access Osmium directly from WhatsApp. Ask doubts, take quizzes, get career guidance, and receive daily study reminders  all without downloading an app.",
     image: "/AI study mentor chat interface design.png",
     subtabs: [
       { label: "Instant Doubts", text: "Send any question on WhatsApp and get step-by-step solutions in seconds. Works with text, images, and voice messages." },
       { label: "Daily Practice", text: "Receive daily quiz questions and practice problems on WhatsApp. Build consistency without opening another app." },
       { label: "Study Reminders", text: "Smart reminders based on your study schedule. Never miss a revision session or mock test deadline." },
-      { label: "No App Needed", text: "Zero downloads, zero storage. Everything runs on WhatsApp — perfect for students with limited data or older devices." },
+      { label: "No App Needed", text: "Zero downloads, zero storage. Everything runs on WhatsApp  perfect for students with limited data or older devices." },
     ],
   },
 ];

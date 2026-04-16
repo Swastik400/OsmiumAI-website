@@ -7,7 +7,7 @@ const articles = [
     href: "/#features",
     image: "/ref/9dzqkp3d2u4-app-creative.jpeg",
     date: "Oct 2025",
-    title: "Introducing Osmium v2 — The Most Accurate Exam Prediction Engine",
+    title: "Introducing Osmium v2  The Most Accurate Exam Prediction Engine",
   },
   {
     href: "/#features",

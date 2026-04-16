@@ -53,7 +53,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-      {/* Left — Details panel (hidden on mobile) */}
+      {/* Left  Details panel (hidden on mobile) */}
       <div className="relative hidden md:flex w-full md:w-[45%] flex-none">
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -73,7 +73,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Right — Form */}
+      {/* Right  Form */}
       <div className="w-full md:w-[55%] overflow-y-auto flex flex-col justify-center bg-white">
         <div className="px-6 sm:px-10 md:px-14 lg:px-16 py-10 md:py-14">
           {submitted ? (

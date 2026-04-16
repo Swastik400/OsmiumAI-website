@@ -12,14 +12,14 @@ export function APIShowcase2() {
 
           <ScrollReveal>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-              {/* Left — description */}
+              {/* Left  description */}
               <div className="relative px-4 md:px-12 text-pretty py-12 flex flex-col justify-between">
                 <div>
                   <p className="type-xs text-brand font-medium uppercase tracking-wider mb-4">
                     India&apos;s First Educational LLM
                   </p>
                   <h3 className="type-xl text-black">
-                    Osmium AI {"\\u2014"} 96 Billion Parameters
+                    Osmium AI  96 Billion Parameters
                   </h3>
                   <div className="mt-4 type-base text-warm-500">
                     <p>
@@ -35,7 +35,7 @@ export function APIShowcase2() {
                       <h4 className="type-sm text-black">Outperforms in Education</h4>
                       <p className="type-sm mt-3 text-warm-500">
                         Benchmarked against top AI models in exam prediction,
-                        doubt solving, and personalized learning {"\\u2014"} Osmium
+                        doubt solving, and personalized learning  Osmium
                         leads in the education sector.
                       </p>
                     </div>
@@ -54,7 +54,7 @@ export function APIShowcase2() {
               {/* Vertical divider (desktop) */}
               <div className="hidden w-px lg:block bg-black/[0.06]" />
 
-              {/* Right — benchmark image */}
+              {/* Right  benchmark image */}
               <div className="px-4 pb-4 lg:pt-4 flex">
                 <div className="relative flex w-full rounded-[1.25rem] bg-cream overflow-hidden">
                   <div className="w-full" style={{ aspectRatio: "1758 / 816" }} />

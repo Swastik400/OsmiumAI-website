@@ -12,7 +12,7 @@ export function WebGLBackground() {
 
     // Scene
     const scene = new THREE.Scene();
-    // No scene fog — let CSS gradient handle all background color
+    // No scene fog  let CSS gradient handle all background color
 
     // Camera
     const camera = new THREE.PerspectiveCamera(

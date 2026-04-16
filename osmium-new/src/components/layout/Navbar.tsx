@@ -49,7 +49,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 right-0 left-0 z-[10000] w-full">
-      {/* Top fade gradient — only when scrolled */}
+      {/* Top fade gradient  only when scrolled */}
       <div
         className="absolute top-0 right-0 left-0 h-8 lg:h-10 pointer-events-none transition-opacity duration-500"
         style={{

@@ -8,12 +8,12 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const features = [
   { icon: Brain, title: "Smart Mock Tests, Powered by AI", desc: "From the moment you start, Osmium learns how you think, what you need, and guides you every step of the way, without any setup or pressure." },
   { icon: GraduationCap, title: "Personalized Learning That Thinks Like a Teacher", desc: "Adaptive learning paths that adjust to your pace, strengths, and weaknesses in real time." },
-  { icon: Bell, title: "Less activity. Slower progress. Quiet chats.", desc: "Osmium gently senses when something's off — maybe you're stressed or overwhelmed. It checks in like a caring friend who reaches out when you go quiet." },
-  { icon: Globe, title: "Connecting India Through Intelligence", desc: "Our AI analyzes learning trends, question patterns, and regional insights — helping every student access smarter preparation, no matter where they are." },
+  { icon: Bell, title: "Less activity. Slower progress. Quiet chats.", desc: "Osmium gently senses when something's off  maybe you're stressed or overwhelmed. It checks in like a caring friend who reaches out when you go quiet." },
+  { icon: Globe, title: "Connecting India Through Intelligence", desc: "Our AI analyzes learning trends, question patterns, and regional insights  helping every student access smarter preparation, no matter where they are." },
   { icon: MessageCircle, title: "Ask. Understand. Master Anything.", desc: "Get crystal-clear answers in seconds with visual explanations, step-by-step logic, and examples for any concept." },
   { icon: TrendingUp, title: "Progress You Can Feel", desc: "From topic mastery to career suggestions and consistency streaks, Osmium motivates you with meaningful milestones." },
   { icon: Target, title: "Built for Real Exam Success", desc: "Quizzes adapt to your skill level, mirror real test conditions, and provide instant insights to improve speed, accuracy, and confidence." },
-  { icon: Map, title: "Your Career Path, Mapped by AI", desc: "A crystal-clear roadmap showing where to begin, what to learn next, and how to reach your goals — step by step." },
+  { icon: Map, title: "Your Career Path, Mapped by AI", desc: "A crystal-clear roadmap showing where to begin, what to learn next, and how to reach your goals  step by step." },
   { icon: Heart, title: "Mental Health & Wellness Support", desc: "Osmium provides mental health support, helping students manage stress, build resilience, and stay motivated." },
 ];
 

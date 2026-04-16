@@ -146,7 +146,7 @@ function TypewriterCode({ dark }: { dark: boolean }) {
     const currentLine = codeLines[lineIdx];
     const totalChars = currentLine.reduce((sum, t) => sum + t.text.length, 0);
 
-    // Empty line — skip quickly
+    // Empty line  skip quickly
     if (totalChars === 0) {
       const timer = setTimeout(() => {
         setCharIndex(0);
@@ -284,7 +284,7 @@ export function APIShowcase() {
           {/* Content */}
           <ScrollReveal>
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
-              {/* Left — description + features */}
+              {/* Left  description + features */}
               <div className="relative px-4 md:px-12 text-pretty py-12 flex flex-col justify-between">
                 <div>
                   <h3 className="type-xl text-black">Osmium Integration API</h3>
@@ -310,7 +310,7 @@ export function APIShowcase() {
               {/* Vertical divider (desktop) */}
               <div className="hidden w-px lg:block bg-black/[0.06]" />
 
-              {/* Right — code snippet with typewriter */}
+              {/* Right  code snippet with typewriter */}
               <CodeBlock />
             </div>
           </ScrollReveal>

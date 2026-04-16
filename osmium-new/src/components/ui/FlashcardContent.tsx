@@ -10,10 +10,10 @@ interface Card {
 
 const CARDS: Card[] = [
     { question: "What is the difference between accuracy and precision?", answer: "Accuracy is how close a measurement is to the true value. Precision is how consistent repeated measurements are with each other." },
-    { question: "What does UCD stand for?", answer: "User-Centered Design — a framework that grounds the design process in the needs and behaviors of real users." },
+    { question: "What does UCD stand for?", answer: "User-Centered Design  a framework that grounds the design process in the needs and behaviors of real users." },
     { question: "What is a wireframe?", answer: "A low-fidelity visual guide that represents the skeletal structure of a page or screen layout." },
     { question: "Define cognitive load in UX.", answer: "The total mental effort required to use a product. Good design minimizes unnecessary cognitive load." },
-    { question: "What is an affordance?", answer: "A property of an object that suggests how it can be used — e.g. a button looks pressable." },
+    { question: "What is an affordance?", answer: "A property of an object that suggests how it can be used  e.g. a button looks pressable." },
 ];
 
 export function FlashcardContent() {
@@ -37,7 +37,7 @@ export function FlashcardContent() {
                     <div className="absolute inset-x-3 top-0 bottom-3 rounded-xl bg-[#d8d8d8]" />
                     {/* Back card 1 */}
                     <div className="absolute inset-x-1.5 top-0 bottom-1.5 rounded-xl bg-[#e8e8e8]" />
-                    {/* Main card — 3D flip */}
+                    {/* Main card  3D flip */}
                     <div
                         className="relative w-full h-full cursor-pointer select-none"
                         style={{ perspective: "800px" }}

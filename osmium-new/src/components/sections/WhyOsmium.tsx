@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const cards = [
   { num: "01", bg: "bg-[#f2f2f2]", title: "Quality Education, Everywhere in India", desc: "Osmium is an AI-powered learning platform for Indian students, offering lectures, tests, notes, guidance, and support in one place." },
   { num: "02", bg: "bg-[#e9eff6]", title: "Bridging the Education Gap Across India", desc: "Osmium uses AI to make quality education accessible to all, bridging the gap between urban and rural students for equal success." },
-  { num: "03", bg: "bg-[#f2eff5]", title: "Osmium — The Operating System for Indian Learners", desc: "Osmium is an AI-powered platform offering lectures, tests, notes, guidance, and support for students." },
+  { num: "03", bg: "bg-[#f2eff5]", title: "Osmium  The Operating System for Indian Learners", desc: "Osmium is an AI-powered platform offering lectures, tests, notes, guidance, and support for students." },
 ];
 
 export function WhyOsmium() {

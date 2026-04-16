@@ -11,7 +11,7 @@ export function PlatformIntro() {
           </p>
 
           <div className="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-12">
-            {/* Left — heading + CTA */}
+            {/* Left  heading + CTA */}
             <div className="contents lg:block lg:col-span-6">
               <h2 className="block text-black text-balance type-5xl max-w-lg lg:max-w-none">
                 One lesson, five ways to master it
@@ -29,7 +29,7 @@ export function PlatformIntro() {
               </div>
             </div>
 
-            {/* Right — description */}
+            {/* Right  description */}
             <div className="flex flex-col mt-8 lg:mt-0 max-w-2xl lg:max-w-none lg:col-span-6">
               <p className="block type-base mt-auto text-balance lg:text-pretty text-black">
                 Every lesson comes with video lectures, AI-generated podcasts,

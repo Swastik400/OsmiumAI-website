@@ -133,7 +133,7 @@ function StatCard({ value, label }: { value: string; label: string }) {
 export default function AboutPage() {
   return (
     <>
-      {/* ━━━ HERO — cinematic full-width ━━━ */}
+      {/* ━━━ HERO  cinematic full-width ━━━ */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* BG image */}
         <div className="absolute inset-0">
@@ -164,7 +164,7 @@ export default function AboutPage() {
 
         </div>
 
-        {/* Scroll indicator — centered bottom */}
+        {/* Scroll indicator  centered bottom */}
         <button
           onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: "smooth" })}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 group flex flex-col items-center gap-2 cursor-pointer"
@@ -201,7 +201,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ━━━ MISSION — large centered statement ━━━ */}
+      {/* ━━━ MISSION  large centered statement ━━━ */}
       <section className="py-20 md:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <ScrollReveal>
@@ -233,7 +233,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ━━━ OUR STORY — immersive alternating blocks ━━━ */}
+      {/* ━━━ OUR STORY  immersive alternating blocks ━━━ */}
       <section id="our-story" className="pt-20 pb-8 md:pt-28 md:pb-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <ScrollReveal>
@@ -367,7 +367,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ━━━ JOURNEY — vertical timeline ━━━ */}
+      {/* ━━━ JOURNEY  vertical timeline ━━━ */}
       <section className="py-16 md:py-24 bg-warm-50">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <ScrollReveal>
@@ -406,7 +406,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ━━━ TEAM — hover-reveal cards ━━━ */}
+      {/* ━━━ TEAM  hover-reveal cards ━━━ */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <ScrollReveal>
@@ -505,7 +505,7 @@ export default function AboutPage() {
 function TeamCard({ member }: { member: (typeof team)[number] & { objectPos?: string } }) {
   return (
     <div className="group relative isolate h-full overflow-hidden rounded-2xl bg-warm-50 ring-[0.5px] ring-inset ring-black/[0.06] transition-all duration-500 hover:ring-black/[0.12] hover:shadow-lg">
-      {/* Avatar area — square */}
+      {/* Avatar area  square */}
       <div className="relative w-full aspect-[5/5.5] overflow-hidden bg-warm-100">
         <Image
           src={member.avatar}

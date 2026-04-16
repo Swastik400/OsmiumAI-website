@@ -30,12 +30,11 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-x-8 gap-y-12 py-16 sm:grid-cols-4 md:py-20">
           {/* Brand column */}
           <div className="col-span-2 sm:col-span-1">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/ref/Group 180.svg"
-              alt="Osmium"
-              className="h-8"
-            />
+            <div className="flex items-center gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="Osmium" className="w-auto h-5" />
+              <span className="font-medium text-xs uppercase tracking-[1px] text-white">Osmium Ai</span>
+            </div>
             <p className="mt-5 type-sm text-white/40 leading-relaxed">
               Made in India, For India,
               <br />

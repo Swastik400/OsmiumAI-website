@@ -7,7 +7,7 @@ const highlights = [
   },
   {
     title: "Becoming the Operating System of India's Education Ecosystem",
-    desc: "We're building the core system that will power how India learns — smart, simple, and scalable.",
+    desc: "We're building the core system that will power how India learns  smart, simple, and scalable.",
   },
 ];
 

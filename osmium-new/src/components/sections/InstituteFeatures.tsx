@@ -125,7 +125,7 @@ export function InstituteFeatures() {
             {/* Interactive grid */}
             <ScrollReveal delay={100}>
               <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1.2fr] gap-0">
-                {/* Left — feature list */}
+                {/* Left  feature list */}
                 <div className="flex flex-col">
                   {features.map((f, i) => (
                     <button
@@ -180,7 +180,7 @@ export function InstituteFeatures() {
                   }}
                 />
 
-                {/* Right — active feature detail */}
+                {/* Right  active feature detail */}
                 <div
                   className="flex flex-col justify-center px-5 md:px-10 py-8 md:py-12"
                   style={{ backgroundColor: "#f5f3f1", borderRadius: "0 1.25rem 1.25rem 0" }}

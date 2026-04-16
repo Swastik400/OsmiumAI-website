@@ -7,11 +7,11 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const faqs = [
-  { q: "What is Osmium?", a: "Osmium is an AI-powered education and career guidance platform built for Indian students. It offers smart mock tests, personalized learning, career mapping, and mental health support — all in one place." },
+  { q: "What is Osmium?", a: "Osmium is an AI-powered education and career guidance platform built for Indian students. It offers smart mock tests, personalized learning, career mapping, and mental health support  all in one place." },
   { q: "How does Osmium predict exam questions?", a: "Osmium is trained on thousands of past papers and uses AI to analyze patterns, trends, and question frequencies. It generates mock tests that closely mirror real exam conditions." },
-  { q: "Is Osmium available for individual students?", a: "Osmium is currently available for institutes. Access for individual students is on the way — stay tuned!" },
+  { q: "Is Osmium available for individual students?", a: "Osmium is currently available for institutes. Access for individual students is on the way  stay tuned!" },
   { q: "What exams does Osmium support?", a: "Osmium supports a wide range of competitive and academic exams across India, with AI-powered preparation tailored to each exam's unique pattern." },
-  { q: "How does the career guidance feature work?", a: "Osmium analyzes your skills, interests, and academic performance to build a personalized career roadmap — showing you where to begin, what to learn next, and how to reach your goals." },
+  { q: "How does the career guidance feature work?", a: "Osmium analyzes your skills, interests, and academic performance to build a personalized career roadmap  showing you where to begin, what to learn next, and how to reach your goals." },
   { q: "Who built Osmium?", a: "Osmium is built by Navchetna Technology (NINELLMS SOLUTIONS LLP), a passionate team of student innovators dedicated to transforming education through AI." },
 ];
 

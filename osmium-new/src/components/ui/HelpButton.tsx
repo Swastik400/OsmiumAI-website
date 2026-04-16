@@ -12,9 +12,9 @@ const quickActions = [
 
 const responses: Record<string, string> = {
   features:
-    "Osmium offers AI-powered mock tests trained on thousands of past papers, a 24/7 AI study mentor, career path mapping, interactive learning with 5 modes per lesson, progress analytics, and WhatsApp integration — all in one platform! 🚀",
+    "Osmium offers AI-powered mock tests trained on thousands of past papers, a 24/7 AI study mentor, career path mapping, interactive learning with 5 modes per lesson, progress analytics, and WhatsApp integration  all in one platform! 🚀",
   pricing:
-    "We have 3 plans:\n\n• **Free** — 2 mock tests/month, basic AI features\n• **Pro** — 15 mock tests/month, advanced AI career guidance\n• **Premium** — 30 mock tests/month, expert AI features + priority support\n\nVisit /pricing for full details!",
+    "We have 3 plans:\n\n• **Free**  2 mock tests/month, basic AI features\n• **Pro**  15 mock tests/month, advanced AI career guidance\n• **Premium**  30 mock tests/month, expert AI features + priority support\n\nVisit /pricing for full details!",
   exams:
     "Osmium supports a wide range of Indian competitive exams including JEE, NEET, CUET, UPSC, SSC, banking exams, and more. Our AI adapts to each exam's unique pattern and question style. 📚",
   support:

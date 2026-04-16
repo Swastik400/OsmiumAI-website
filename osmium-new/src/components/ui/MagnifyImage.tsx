@@ -11,6 +11,13 @@ interface Props {
   imageSrc?: string;
 }
 
+interface ImageBounds {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
 export function MagnifyZone({
   children,
   className = "",
@@ -22,30 +29,38 @@ export function MagnifyZone({
   const zoneRef = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [size, setSize] = useState({ w: 0, h: 0 });
+  const [bounds, setBounds] = useState<ImageBounds>({ x: 0, y: 0, w: 0, h: 0 });
   const [resolvedSrc, setResolvedSrc] = useState<string | null>(null);
 
   const handleEnter = useCallback(() => {
     const el = zoneRef.current;
     if (!el) return;
 
-    setSize({ w: el.offsetWidth, h: el.offsetHeight });
-
-    // Always try to get the actual rendered src from the DOM img
+    const containerRect = el.getBoundingClientRect();
     const img = el.querySelector("img");
+
     if (img) {
-      // For Next.js Image: use currentSrc (the actual loaded source) or src
       const actualSrc = img.currentSrc || img.src;
-      if (actualSrc) {
-        setResolvedSrc(actualSrc);
-        setShow(true);
-        return;
-      }
+      if (!actualSrc) return;
+
+      setResolvedSrc(actualSrc);
+
+      // Calculate actual rendered image bounds within the container
+      const imgRect = img.getBoundingClientRect();
+      setBounds({
+        x: imgRect.left - containerRect.left,
+        y: imgRect.top - containerRect.top,
+        w: imgRect.width,
+        h: imgRect.height,
+      });
+
+      setShow(true);
+      return;
     }
 
-    // Fallback to imageSrc prop
     if (imageSrc) {
       setResolvedSrc(imageSrc);
+      setBounds({ x: 0, y: 0, w: el.offsetWidth, h: el.offsetHeight });
       setShow(true);
     }
   }, [imageSrc]);
@@ -64,6 +79,10 @@ export function MagnifyZone({
   }, []);
 
   const half = lensSize / 2;
+
+  // Position relative to the actual image, not the container
+  const relX = pos.x - bounds.x;
+  const relY = pos.y - bounds.y;
 
   return (
     <div
@@ -91,8 +110,8 @@ export function MagnifyZone({
               top: pos.y - half,
               left: pos.x - half,
               backgroundImage: `url(${resolvedSrc})`,
-              backgroundSize: `${size.w * zoom}px ${size.h * zoom}px`,
-              backgroundPosition: `${-(pos.x * zoom) + half}px ${-(pos.y * zoom) + half}px`,
+              backgroundSize: `${bounds.w * zoom}px ${bounds.h * zoom}px`,
+              backgroundPosition: `${-(relX * zoom) + half}px ${-(relY * zoom) + half}px`,
               backgroundRepeat: "no-repeat",
             }}
           />

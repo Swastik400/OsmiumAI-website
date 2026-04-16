@@ -77,7 +77,7 @@ export function BentoGrid() {
     <section className="pb-16 md:pb-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-12 gap-4">
-          {/* ── Large card 1: Mock Tests — with reference bg image ── */}
+          {/* ── Large card 1: Mock Tests  with reference bg image ── */}
           <ScrollReveal className="col-span-full lg:col-span-6">
             <div className="group relative isolate h-full overflow-hidden rounded-[1.25rem]">
               <div className="relative flex h-full flex-col px-5 pb-6 sm:px-7 sm:pb-8">
@@ -116,7 +116,7 @@ export function BentoGrid() {
                   Interactive course learning
                 </h3>
                 <p className="mt-4 type-sm text-pretty text-white">
-                  5 learning modes in every lesson — video lectures, AI podcasts, quizzes, flashcards, and question banks. Learn any way that works for you.
+                  5 learning modes in every lesson  video lectures, AI podcasts, quizzes, flashcards, and question banks. Learn any way that works for you.
                 </p>
                 <div className="pointer-events-none absolute inset-0 z-30 rounded-[1.25rem] ring-[0.5px] ring-inset ring-black/[0.075]" />
               </div>
@@ -150,7 +150,7 @@ export function BentoGrid() {
             </div>
           </ScrollReveal>
 
-          {/* ── 4 Small icon cards — clickable, switches podcast tab ── */}
+          {/* ── 4 Small icon cards  clickable, switches podcast tab ── */}
           {smallCards.map((card, i) => (
             <ScrollReveal
               key={card.title}

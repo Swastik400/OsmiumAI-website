@@ -11,7 +11,7 @@ const events = [
   { title: "Career Mapping", desc: "AI-powered career roadmaps analyzing skills, interests, and job market", date: "Jan 2025" },
   { title: "Osmium v2", desc: "Complete platform rebuild with wellness support and analytics dashboard", date: "Apr 2025" },
   { title: "Pan-India Launch", desc: "Osmium available to institutes across all Indian states", date: "Jul 2025" },
-  { title: "Student Access", desc: "Individual student access opens — bringing Osmium to every learner", date: "Oct 2025" },
+  { title: "Student Access", desc: "Individual student access opens  bringing Osmium to every learner", date: "Oct 2025" },
 ];
 
 const TOTAL_TICKS = 80;

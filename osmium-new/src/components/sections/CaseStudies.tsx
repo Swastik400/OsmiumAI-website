@@ -141,7 +141,7 @@ export function CaseStudies() {
                 </div>
               </div>
 
-              {/* Mosaic — desktop */}
+              {/* Mosaic  desktop */}
               <div
                 className="relative mx-auto hidden md:grid"
                 style={{

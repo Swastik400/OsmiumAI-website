@@ -9,7 +9,7 @@ const features = [
     desc: "AI-generated tests trained on thousands of past papers. Adaptive difficulty, real exam patterns, and instant scoring.",
     color: "#E8D5C4",
     mockUI: {
-      heading: "Physics — JEE Mains 2025",
+      heading: "Physics  JEE Mains 2025",
       items: [
         { label: "Q1. A particle moves in a circle...", status: "Correct", color: "#22c55e" },
         { label: "Q2. The electric field due to...", status: "Incorrect", color: "#ef4444" },
@@ -22,15 +22,15 @@ const features = [
   },
   {
     title: "AI Career Mapping",
-    desc: "Crystal-clear roadmaps showing where to begin, what to learn next, and how to reach your goals — step by step.",
+    desc: "Crystal-clear roadmaps showing where to begin, what to learn next, and how to reach your goals  step by step.",
     color: "#D5E0E8",
     mockUI: {
       heading: "Your Career Roadmap",
       items: [
-        { label: "Class 12 — PCM", status: "Completed", color: "#22c55e" },
+        { label: "Class 12  PCM", status: "Completed", color: "#22c55e" },
         { label: "JEE Mains Preparation", status: "In Progress", color: "#f59e0b" },
         { label: "JEE Advanced Target", status: "Upcoming", color: "#a3a3a3" },
-        { label: "B.Tech — Computer Science", status: "Goal", color: "#8b5cf6" },
+        { label: "B.Tech  Computer Science", status: "Goal", color: "#8b5cf6" },
       ],
       score: "Stage 2/4",
       time: "On Track",

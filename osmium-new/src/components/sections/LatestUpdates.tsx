@@ -5,7 +5,7 @@ const posts = [
   {
     href: "/#features",
     image: "/ref/BlogCover10.jpeg",
-    title: "Introducing Osmium v2 — Smarter Mock Tests, Deeper Insights",
+    title: "Introducing Osmium v2  Smarter Mock Tests, Deeper Insights",
     category: "Product",
     date: "Mar 11, 2025",
   },
@@ -19,7 +19,7 @@ const posts = [
   {
     href: "/#features",
     image: "/ref/Cover0.jpeg",
-    title: "Introducing Career Mapping — AI-Powered Roadmaps for Every Student",
+    title: "Introducing Career Mapping  AI-Powered Roadmaps for Every Student",
     category: "Product",
     date: "Feb 10, 2025",
   },

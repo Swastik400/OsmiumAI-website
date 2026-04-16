@@ -299,7 +299,7 @@ export default function TestingPage() {
       <section className="pb-20 md:pb-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            {/* Large card — Interactive Learning */}
+            {/* Large card  Interactive Learning */}
             <ScrollReveal>
               <div className="relative isolate rounded-3xl overflow-hidden h-full min-h-[28rem]">
                 <img
@@ -315,7 +315,7 @@ export default function TestingPage() {
                   <div className="mt-auto">
                     <h3 className="type-3xl" style={{ color: "#ffffff" }}>Interactive Course Learning</h3>
                     <p className="mt-3 type-sm text-white/70 max-w-md text-pretty">
-                      5 learning modes in every lesson — video lectures, AI podcasts, quizzes, flashcards, and question banks.
+                      5 learning modes in every lesson  video lectures, AI podcasts, quizzes, flashcards, and question banks.
                     </p>
                   </div>
                 </div>
@@ -323,7 +323,7 @@ export default function TestingPage() {
               </div>
             </ScrollReveal>
 
-            {/* Right column — 2 stacked cards */}
+            {/* Right column  2 stacked cards */}
             <div className="grid grid-rows-2 gap-5">
               {/* AI Tutor card */}
               <ScrollReveal delay={100}>
@@ -367,7 +367,7 @@ export default function TestingPage() {
             </div>
           </div>
 
-          {/* Bottom row — 4 small feature cards */}
+          {/* Bottom row  4 small feature cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
             {smallFeatures.map((f, i) => (
               <ScrollReveal key={f.title} delay={i * 80}>

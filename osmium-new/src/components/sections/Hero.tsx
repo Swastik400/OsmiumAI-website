@@ -25,7 +25,7 @@ export function Hero() {
         }}
       />
 
-      {/* ── Mountain WebGL — sits in the middle band ── */}
+      {/* ── Mountain WebGL  sits in the middle band ── */}
       <div className="absolute left-0 right-0 z-[1]" style={{ top: "45%", height: "30%" }}>
         <WebGLBackground />
       </div>
@@ -88,7 +88,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ── Trusted By — lives inside the same section ── */}
+      {/* ── Trusted By  lives inside the same section ── */}
       <div className="relative z-10 pb-20 md:pb-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <ScrollReveal>

@@ -115,7 +115,7 @@ export function StackLayers() {
 
           {/* Content: images + text */}
           <div className="flex flex-col md:flex-row items-stretch w-full">
-            {/* Left — Product images with bg */}
+            {/* Left  Product images with bg */}
             <div className="relative border border-warm-200 rounded-[32px] md:rounded-[48px] w-full md:w-1/2 h-[280px] md:h-[480px] overflow-hidden bg-warm-50">
               {/* Background images */}
               {layers.map((layer, i) => (
@@ -158,7 +158,7 @@ export function StackLayers() {
               ))}
             </div>
 
-            {/* Right — Text blocks */}
+            {/* Right  Text blocks */}
             <div className="relative w-full md:w-1/2 min-h-[240px] md:min-h-0">
               {layers.map((layer, i) => {
                 const textStyle = getTextStyle(i);

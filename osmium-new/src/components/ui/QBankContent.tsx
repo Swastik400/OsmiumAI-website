@@ -10,7 +10,7 @@ interface QBankItem {
 }
 
 const QUESTIONS: QBankItem[] = [
-    { question: "Who is the primary focus of User-Centric Design?", answer: "The end user — emphasizing their needs, expectations, behaviors, and real-world context to ensure the product is intuitive and meaningful.", difficulty: "Easy" },
+    { question: "Who is the primary focus of User-Centric Design?", answer: "The end user  emphasizing their needs, expectations, behaviors, and real-world context to ensure the product is intuitive and meaningful.", difficulty: "Easy" },
     { question: "What is a persona in UCD?", answer: "A fictional character created to represent a user type that might use a product in a similar way.", difficulty: "Easy" },
     { question: "Why is user research important in UCD?", answer: "It helps understand user needs, behaviors, and pain points, ensuring the design addresses real problems and creates meaningful solutions.", difficulty: "Easy" },
     { question: "How does UCD improve usability?", answer: "By focusing on user needs and testing with real users, UCD creates intuitive interfaces that reduce friction and improve satisfaction.", difficulty: "Easy" },
