@@ -52,9 +52,9 @@ const team = [
 const milestones = [
   { date: "Sep 2024", title: "The idea sparks in a hostel room after surviving JEE" },
   { date: "Oct 2024", title: "Smart India Hackathon, first prototype built in 7 days" },
-  { date: "Oct 2024", title: "Mock test engine trained on 10,000+ past papers" },
+  { date: "Oct 2024", title: "Mock test engine trained on 1000 past papers" },
   { date: "Dec 2024", title: "AI Tutor v1 launched with step-by-step explanations" },
-  { date: "Jan 2025", title: "First 50 institutes onboarded across Gujarat & Maharashtra" },
+  { date: "Jan 2025", title: "First 5 institutes onboarded across Gujarat & Maharashtra" },
   { date: "Feb 2025", title: "Career Mapping feature goes live" },
   { date: "Apr 2025", title: "Osmium v2, complete platform rebuild" },
   { date: "2025+", title: "Becoming the Operating System of India\u2019s Education" },

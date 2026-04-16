@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { WebGLBackground } from "@/components/ui/WebGLBackground";
+import dynamic from "next/dynamic";
+
+const WebGLBackground = dynamic(
+  () => import("@/components/ui/WebGLBackground").then(m => ({ default: m.WebGLBackground })),
+  { ssr: false }
+);
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { LogoCarousel } from "@/components/ui/LogoCarousel";
 

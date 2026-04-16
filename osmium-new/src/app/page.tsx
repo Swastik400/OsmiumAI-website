@@ -1,19 +1,22 @@
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
 import { StackLayers } from "@/components/sections/StackLayers";
-import { PlatformIntro } from "@/components/sections/PlatformIntro";
-import { BentoGrid } from "@/components/sections/BentoGrid";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { APIIntro } from "@/components/sections/APIIntro";
-import { APIShowcase } from "@/components/sections/APIShowcase";
-import { APIShowcase2 } from "@/components/sections/APIShowcase2";
-import { AllDevices } from "@/components/sections/AllDevices";
-import { InstituteFeatures } from "@/components/sections/InstituteFeatures";
-import { ResearchIntro } from "@/components/sections/ResearchIntro";
-import { Comparison } from "@/components/sections/Comparison";
-import { FeatureShowcase } from "@/components/sections/FeatureShowcase";
-import { Team } from "@/components/sections/Team";
-import { FAQ } from "@/components/sections/FAQ";
+
+const PlatformIntro = dynamic(() => import("@/components/sections/PlatformIntro").then(m => ({ default: m.PlatformIntro })));
+const BentoGrid = dynamic(() => import("@/components/sections/BentoGrid").then(m => ({ default: m.BentoGrid })));
+const FeatureShowcase = dynamic(() => import("@/components/sections/FeatureShowcase").then(m => ({ default: m.FeatureShowcase })));
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(m => ({ default: m.Testimonials })));
+const APIIntro = dynamic(() => import("@/components/sections/APIIntro").then(m => ({ default: m.APIIntro })));
+const APIShowcase = dynamic(() => import("@/components/sections/APIShowcase").then(m => ({ default: m.APIShowcase })));
+const APIShowcase2 = dynamic(() => import("@/components/sections/APIShowcase2").then(m => ({ default: m.APIShowcase2 })));
+const AllDevices = dynamic(() => import("@/components/sections/AllDevices").then(m => ({ default: m.AllDevices })));
+const InstituteFeatures = dynamic(() => import("@/components/sections/InstituteFeatures").then(m => ({ default: m.InstituteFeatures })));
+const ResearchIntro = dynamic(() => import("@/components/sections/ResearchIntro").then(m => ({ default: m.ResearchIntro })));
+const Comparison = dynamic(() => import("@/components/sections/Comparison").then(m => ({ default: m.Comparison })));
+const Timeline = dynamic(() => import("@/components/sections/Timeline").then(m => ({ default: m.Timeline })));
+const Team = dynamic(() => import("@/components/sections/Team").then(m => ({ default: m.Team })));
+const FAQ = dynamic(() => import("@/components/sections/FAQ").then(m => ({ default: m.FAQ })));
 
 export default function Home() {
   return (
@@ -66,6 +69,8 @@ export default function Home() {
 
       {/* ━━━ ACT 7: LATEST + ABOUT ━━━ */}
 
+      {/* Journey timeline */}
+      <Timeline />
 
       {/* Team section */}
       <Team />

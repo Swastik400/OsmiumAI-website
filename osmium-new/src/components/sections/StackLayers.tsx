@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const layers = [
   {
@@ -127,11 +128,14 @@ export function StackLayers() {
                     transition: "opacity 0.5s ease",
                   }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={layer.bg}
                     alt=""
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={60}
+                    loading="lazy"
                   />
                   <div className={`absolute inset-0 ${layer.id === "whatsapp" ? "bg-black/10" : "bg-black/40"}`} />
                 </div>
@@ -148,11 +152,14 @@ export function StackLayers() {
                     transition: "none",
                   }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={layer.image}
                     alt={layer.title}
-                    className="max-h-full max-w-full object-contain drop-shadow-2xl rounded-2xl"
+                    fill
+                    className="object-contain drop-shadow-2xl rounded-2xl"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={75}
+                    loading="lazy"
                   />
                 </div>
               ))}
