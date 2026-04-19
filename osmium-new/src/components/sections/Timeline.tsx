@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const events = [
   { title: "Osmium Concept", desc: "The idea of AI-powered exam prediction born at Navchetna Technology", date: "Jan 2024" },
-  { title: "First Prototype", desc: "Mock test engine trained on 1000+ past papers across 5 subjects", date: "Apr 2024" },
+  { title: "First Prototype", desc: "Mock test engine trained on past papers across 5 subjects", date: "Apr 2024" },
   { title: "AI Tutor v1", desc: "Personalized doubt resolution with step-by-step explanations launched", date: "Jul 2024" },
   { title: "Institute Beta", desc: "First 5 institutes onboarded across Gujarat and Maharashtra", date: "Oct 2024" },
   { title: "Career Mapping", desc: "AI-powered career roadmaps analyzing skills, interests, and job market", date: "Jan 2025" },

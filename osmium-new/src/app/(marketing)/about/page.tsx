@@ -52,7 +52,7 @@ const team = [
 const milestones = [
   { date: "Sep 2024", title: "The idea sparks in a hostel room after surviving JEE" },
   { date: "Oct 2024", title: "Smart India Hackathon, first prototype built in 7 days" },
-  { date: "Oct 2024", title: "Mock test engine trained on 1000 past papers" },
+  { date: "Oct 2024", title: "Mock test engine trained on past papers" },
   { date: "Dec 2024", title: "AI Tutor v1 launched with step-by-step explanations" },
   { date: "Jan 2025", title: "First 5 institutes onboarded across Gujarat & Maharashtra" },
   { date: "Feb 2025", title: "Career Mapping feature goes live" },
@@ -71,7 +71,7 @@ const values = [
 
 const stats = [
   { value: "5", label: "Institutes onboarded" },
-  { value: "1K+", label: "Past papers analyzed" },
+  { value: "96B", label: "Parameters" },
   { value: "7", label: "Days to build first prototype" },
   { value: "5", label: "Co-founders, 1 dream" },
 ];
