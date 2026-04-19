@@ -78,7 +78,7 @@ export function Hero() {
           className="mt-8 flex items-center gap-4"
         >
           <Link
-            href="/contact"
+            href="/get-started"
             className="inline-flex items-center gap-2 rounded-full bg-[#6b3a1f] text-white px-6 py-2.5 text-sm font-semibold transition-all duration-300 hover:bg-[#5a3018] active:scale-[0.98] shadow-lg"
           >
             Get started <ArrowRight size={14} />

@@ -169,8 +169,7 @@ export function Testimonials() {
                 {/* CTA */}
                 <div className="flex flex-none flex-wrap gap-2 flex-row-reverse justify-end sm:flex-row sm:justify-start sm:absolute sm:-top-0.5 sm:right-0 md:static md:-my-0.5">
                   <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.06),0_1px_2px_0_rgba(0,0,0,0.04),0_2px_4px_0_rgba(0,0,0,0.04)] transition-transform duration-300 ease-out active:scale-[0.98] hover:bg-warm-50 w-fit h-12 px-5 type-base"
+                    href="/get-started"
                   >
                     Get started
                   </Link>

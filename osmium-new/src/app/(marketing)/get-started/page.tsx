@@ -13,6 +13,52 @@ const examTypes = [
   "Other",
 ];
 
+const countryCodes = [
+  { code: "+91",  country: "India",          flag: "🇮🇳" },
+  { code: "+1",   country: "USA / Canada",    flag: "🇺🇸" },
+  { code: "+44",  country: "UK",              flag: "🇬🇧" },
+  { code: "+61",  country: "Australia",       flag: "🇦🇺" },
+  { code: "+971", country: "UAE",             flag: "🇦🇪" },
+  { code: "+966", country: "Saudi Arabia",    flag: "🇸🇦" },
+  { code: "+65",  country: "Singapore",       flag: "🇸🇬" },
+  { code: "+60",  country: "Malaysia",        flag: "🇲🇾" },
+  { code: "+64",  country: "New Zealand",     flag: "🇳🇿" },
+  { code: "+27",  country: "South Africa",    flag: "🇿🇦" },
+  { code: "+49",  country: "Germany",         flag: "🇩🇪" },
+  { code: "+33",  country: "France",          flag: "🇫🇷" },
+  { code: "+39",  country: "Italy",           flag: "🇮🇹" },
+  { code: "+34",  country: "Spain",           flag: "🇪🇸" },
+  { code: "+31",  country: "Netherlands",     flag: "🇳🇱" },
+  { code: "+46",  country: "Sweden",          flag: "🇸🇪" },
+  { code: "+47",  country: "Norway",          flag: "🇳🇴" },
+  { code: "+45",  country: "Denmark",         flag: "🇩🇰" },
+  { code: "+41",  country: "Switzerland",     flag: "🇨🇭" },
+  { code: "+43",  country: "Austria",         flag: "🇦🇹" },
+  { code: "+32",  country: "Belgium",         flag: "🇧🇪" },
+  { code: "+351", country: "Portugal",        flag: "🇵🇹" },
+  { code: "+48",  country: "Poland",          flag: "🇵🇱" },
+  { code: "+7",   country: "Russia",          flag: "🇷🇺" },
+  { code: "+86",  country: "China",           flag: "🇨🇳" },
+  { code: "+81",  country: "Japan",           flag: "🇯🇵" },
+  { code: "+82",  country: "South Korea",     flag: "🇰🇷" },
+  { code: "+62",  country: "Indonesia",       flag: "🇮🇩" },
+  { code: "+63",  country: "Philippines",     flag: "🇵🇭" },
+  { code: "+66",  country: "Thailand",        flag: "🇹🇭" },
+  { code: "+84",  country: "Vietnam",         flag: "🇻🇳" },
+  { code: "+880", country: "Bangladesh",      flag: "🇧🇩" },
+  { code: "+92",  country: "Pakistan",        flag: "🇵🇰" },
+  { code: "+94",  country: "Sri Lanka",       flag: "🇱🇰" },
+  { code: "+977", country: "Nepal",           flag: "🇳🇵" },
+  { code: "+20",  country: "Egypt",           flag: "🇪🇬" },
+  { code: "+234", country: "Nigeria",         flag: "🇳🇬" },
+  { code: "+254", country: "Kenya",           flag: "🇰🇪" },
+  { code: "+55",  country: "Brazil",          flag: "🇧🇷" },
+  { code: "+52",  country: "Mexico",          flag: "🇲🇽" },
+  { code: "+54",  country: "Argentina",       flag: "🇦🇷" },
+  { code: "+56",  country: "Chile",           flag: "🇨🇱" },
+  { code: "+57",  country: "Colombia",        flag: "🇨🇴" },
+];
+
 export default function GetStartedPage() {
   const [form, setForm] = useState({
     name: "",
@@ -20,14 +66,48 @@ export default function GetStartedPage() {
     phone: "",
     exam: "",
   });
+  const [dialCode, setDialCode] = useState("+91");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    let attempts = 0;
+    while (attempts < 3) {
+      try {
+        const res = await fetch(
+          "https://5z57jjk428.execute-api.ap-southeast-1.amazonaws.com/prod/waitlist",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...form, phone: `${dialCode}${form.phone}` }),
+          }
+        );
+        if (!res.ok) throw new Error("Server error");
+        setSubmitted(true);
+        setLoading(false);
+        return;
+      } catch (err: unknown) {
+        attempts++;
+        const isNetwork = err instanceof TypeError;
+        if (attempts < 3 && isNetwork) {
+          await new Promise((r) => setTimeout(r, 1000 * attempts));
+          continue;
+        }
+        setError(
+          isNetwork
+            ? "Network error — please check your connection and try again."
+            : "Something went wrong. Please try again."
+        );
+      }
+    }
+    setLoading(false);
   };
 
   return (
@@ -134,14 +214,36 @@ export default function GetStartedPage() {
                   <label className="type-2xs font-medium text-black">
                     WhatsApp number <span className="text-brand">*</span>
                   </label>
-                  <input
-                    required
-                    type="tel"
-                    value={form.phone}
-                    onChange={(e) => update("phone", e.target.value)}
-                    placeholder="eg. 9876543210"
-                    className="w-full mt-1 pb-1.5 border-0 border-b border-warm-200 bg-transparent type-xs text-black outline-none placeholder:text-warm-300 focus:border-black transition-colors"
-                  />
+                  <div className="flex items-end gap-0 mt-1">
+                    {/* Country code dropdown */}
+                    <div className="relative flex-none">
+                      <select
+                        value={dialCode}
+                        onChange={(e) => setDialCode(e.target.value)}
+                        aria-label="Country code"
+                        className="appearance-none bg-transparent border-0 border-b border-warm-200 pb-1.5 pr-5 type-xs text-black outline-none cursor-pointer focus:border-black transition-colors"
+                      >
+                        {countryCodes.map((c) => (
+                          <option key={c.code + c.country} value={c.code}>
+                            {c.flag} {c.code} {c.country}
+                          </option>
+                        ))}
+                      </select>
+                      <svg className="pointer-events-none absolute right-0 bottom-2 size-3 text-warm-400" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <div className="w-px h-4 bg-warm-200 mb-1.5 mx-2 flex-none" />
+                    {/* Number input */}
+                    <input
+                      required
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => update("phone", e.target.value.replace(/\D/g, ""))}
+                      placeholder="9876543210"
+                      className="flex-1 pb-1.5 border-0 border-b border-warm-200 bg-transparent type-xs text-black outline-none placeholder:text-warm-300 focus:border-black transition-colors"
+                    />
+                  </div>
                 </div>
 
                 {/* Exam type */}
@@ -170,15 +272,21 @@ export default function GetStartedPage() {
 
                 {/* Submit */}
                 <div className="pt-2">
+                  {error && (
+                    <p className="text-red-500 type-xs mb-3">{error}</p>
+                  )}
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-[#131313] text-white px-7 py-2.5 text-sm font-medium transition-all duration-300 active:scale-95 hover:bg-warm-800 gap-2"
+                    disabled={loading}
+                    className="inline-flex items-center justify-center rounded-full bg-[#131313] text-white px-7 py-2.5 text-sm font-medium transition-all duration-300 active:scale-95 hover:bg-warm-800 gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{ boxShadow: "inset 0 0 12px rgba(255,255,255,0.15), 0px 0px 2px 0 rgba(0,0,0,0.1)" }}
                   >
-                    Join waitlist
-                    <svg viewBox="0 0 16 16" fill="none" className="size-3.5">
-                      <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    {loading ? "Joining…" : "Join waitlist"}
+                    {!loading && (
+                      <svg viewBox="0 0 16 16" fill="none" className="size-3.5">
+                        <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
                   </button>
                 </div>
               </form>

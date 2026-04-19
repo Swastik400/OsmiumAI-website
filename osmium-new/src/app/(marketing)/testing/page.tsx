@@ -185,7 +185,7 @@ export default function TestingPage() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/contact"
+                  href="/get-started"
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white text-black transition-all duration-300 active:scale-[0.98] hover:bg-warm-100 h-12 px-7 type-base font-medium"
                 >
                   Get started
@@ -575,7 +575,7 @@ export default function TestingPage() {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3 justify-center">
                   <Link
-                    href="/contact"
+                    href="/get-started"
                     className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white text-black transition-all duration-300 active:scale-[0.98] hover:bg-warm-100 h-12 px-7 type-base font-medium"
                   >
                     Get started free

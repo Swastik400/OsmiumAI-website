@@ -42,13 +42,32 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(
+        "https://5z57jjk428.execute-api.ap-southeast-1.amazonaws.com/prod/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+      if (!res.ok) throw new Error("Server error");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -267,13 +286,17 @@ export default function ContactPage() {
 
                 {/* Submit */}
                 <div className="pt-2">
+                  {error && (
+                    <p className="text-red-500 type-xs mb-3">{error}</p>
+                  )}
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-[#131313] text-white px-7 py-2.5 text-sm font-medium transition-all duration-300 active:scale-95 hover:bg-warm-800 gap-2"
+                    disabled={loading}
+                    className="inline-flex items-center justify-center rounded-full bg-[#131313] text-white px-7 py-2.5 text-sm font-medium transition-all duration-300 active:scale-95 hover:bg-warm-800 gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{ boxShadow: "inset 0 0 12px rgba(255,255,255,0.15), 0px 0px 2px 0 rgba(0,0,0,0.1)" }}
                   >
-                    Send Request
-                    <ArrowRight className="size-3.5" />
+                    {loading ? "Sending…" : "Send Request"}
+                    {!loading && <ArrowRight className="size-3.5" />}
                   </button>
                 </div>
               </form>

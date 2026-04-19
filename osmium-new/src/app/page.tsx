@@ -14,7 +14,6 @@ const AllDevices = dynamic(() => import("@/components/sections/AllDevices").then
 const InstituteFeatures = dynamic(() => import("@/components/sections/InstituteFeatures").then(m => ({ default: m.InstituteFeatures })));
 const ResearchIntro = dynamic(() => import("@/components/sections/ResearchIntro").then(m => ({ default: m.ResearchIntro })));
 const Comparison = dynamic(() => import("@/components/sections/Comparison").then(m => ({ default: m.Comparison })));
-const Timeline = dynamic(() => import("@/components/sections/Timeline").then(m => ({ default: m.Timeline })));
 const Team = dynamic(() => import("@/components/sections/Team").then(m => ({ default: m.Team })));
 const FAQ = dynamic(() => import("@/components/sections/FAQ").then(m => ({ default: m.FAQ })));
 
@@ -68,9 +67,6 @@ export default function Home() {
       <Comparison />
 
       {/* ━━━ ACT 7: LATEST + ABOUT ━━━ */}
-
-      {/* Journey timeline */}
-      <Timeline />
 
       {/* Team section */}
       <Team />

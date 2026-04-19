@@ -88,7 +88,7 @@ export function Comparison() {
                     <p className="type-xs sm:type-sm text-warm-500">Ready to upgrade your learning?</p>
                   </div>
                   <div className="px-4 py-4 sm:px-6 sm:py-5 border-l border-black/[0.06] flex items-center justify-center">
-                    <a href="/contact" className="inline-flex items-center justify-center rounded-full bg-white text-black px-4 sm:px-5 h-8 sm:h-9 type-xs sm:type-sm font-medium transition-all duration-200 active:scale-95 hover:bg-black hover:text-white whitespace-nowrap">
+                    <a href="/get-started" className="inline-flex items-center justify-center rounded-full bg-white text-black px-4 sm:px-5 h-8 sm:h-9 type-xs sm:type-sm font-medium transition-all duration-200 active:scale-95 hover:bg-black hover:text-white whitespace-nowrap">
                       Get started
                     </a>
                   </div>
