@@ -224,11 +224,11 @@ export default function TermsAndConditionsPage() {
                       Team Osmium
                     </p>
                     <p className="type-xs text-warm-400">
-                      Founders, Navchetna Technology
+                      Founders, Navchetna Technologies
                     </p>
                   </div>
                   <p className="mt-6 type-2xs text-warm-300">
-                    &copy; 2025 Osmium by Navchetna Technology &middot;{" "}
+                    &copy; 2025 Osmium by Navchetna Technologies &middot;{" "}
                     <a
                       href="https://osmium.co.in"
                       target="_blank"

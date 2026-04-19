@@ -34,7 +34,7 @@ const team = [
   {
     name: "Suman Yadav",
     role: "Co-Founder",
-    desc: "Head of Design with passion for technology and creativity. The mind behind Osmium\u2019s UI/UX, ensuring seamless and engaging user experiences.",
+    desc: "Head of Design with passion for Technologies and creativity. The mind behind Osmium\u2019s UI/UX, ensuring seamless and engaging user experiences.",
     avatar: "/team/suman.jpg",
     linkedin: "https://www.linkedin.com/in/suman-yadav-bb5516322/",
     objectPos: "center 50%",
@@ -374,7 +374,7 @@ export default function AboutPage() {
             <div className="text-center mb-16">
               <p className="type-sm text-warm-500 font-medium mb-4">Our Journey</p>
               <h2 className="type-5xl text-black text-balance max-w-lg mx-auto">
-                From a hostel idea to India&apos;s education OS
+                From a hostel idea to India&apos;s Education OS
               </h2>
             </div>
           </ScrollReveal>
@@ -488,7 +488,7 @@ export default function AboutPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-white/10 text-white transition-all duration-300 active:scale-[0.98] hover:bg-white/20 h-12 px-7 type-base font-medium ring-[0.5px] ring-inset ring-white/20"
                   >
-                    Visit Navchetna Technology
+                    Visit Navchetna Technologies
                   </a>
                 </div>
               </div>

@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
                       Team Osmium
                     </p>
                     <p className="type-xs text-warm-400">
-                      Founders, Navchetna Technology
+                      Founders, Navchetna Technologies
                     </p>
                   </div>
                 </div>
